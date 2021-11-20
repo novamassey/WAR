@@ -1,0 +1,84 @@
+html, * {
+    box-sizing: border-box;
+  }
+  
+  html, body {
+    height: 100%;
+    background-image: url ("https://upload.wikimedia.org/wikipedia/commons/1/19/Castle_Romeo.jpg");
+  }
+
+  h1, h2, p {
+    text-align: center
+  }
+  
+  .game-container {
+    display: flex;
+    justify-content: center;
+    align-content: space-between;
+  }
+
+  .scoreboard {
+    display: flex;
+    justify-content: center;
+  }
+
+  .rules {
+    max-width: 100%;
+    display: grid;
+    grid-column-start: 2;
+    }
+
+  .rules > h2, p {
+    display: flex;
+    justify-content: center;
+    max-width:50%;
+   
+  }
+  
+  
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    border: 4px dotted grey;
+  }
+
+  #player-deck {
+    margin-right: 15%;
+
+  }
+
+  #computer-deck {
+    margin-left: 15%;
+  }
+
+  .scoreboard {
+    display:flex;
+  }
+
+  #playerscore {
+    margin-left: 15%;
+  }
+
+  #computerscore {
+    margin-left: 15%;
+  }
+
+  button {
+    display: block;
+    margin: 10px auto;
+    padding: 10px;
+    font-size: 16px;
+    color: white;
+    border: 1px solid grey;
+    border-radius: 4px;
+    outline: none;
+    background-color: black;
+  }
+  
+  button:hover {
+    background-color: grey;
+    color: white;
+    cursor: pointer;
+  }
+  
