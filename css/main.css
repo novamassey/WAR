@@ -4,7 +4,7 @@ html, * {
   
   html, body {
     height: 100%;
-    background-image: url ("https://upload.wikimedia.org/wikipedia/commons/1/19/Castle_Romeo.jpg");
+    background-image: url("https://en.wikipedia.org/wiki/War#/media/File:Into_the_Jaws_of_Death_23-0455M_edit.jpg");
   }
 
   h1, h2, p {
@@ -18,20 +18,32 @@ html, * {
   }
 
   .scoreboard {
-    display: flex;
-    justify-content: center;
+    display: inline-block;
+    grid-template-columns: 15% 70% 15%;
+  }
+  .scoreboard > #playerscore {
+    display:grid;
+    grid-template-columns: 15% 70% 15%;
+    grid-template-start:2;
+  }
+
+  .scoreboard > #computerscore {
+    display:grid;
+    grid-template-columns: 15% 70% 15%;
+    grid-template-start: 3;
   }
 
   .rules {
     max-width: 100%;
     display: grid;
-    grid-column-start: 2;
-    }
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 
   .rules > h2, p {
-    display: flex;
-    justify-content: center;
-    max-width:50%;
+    display: grid;
+    grid-column-start: 2;
+    margin: 10px 0 10px;
+   
    
   }
   
