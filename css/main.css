@@ -4,7 +4,9 @@ html, * {
   
   html, body {
     height: 100%;
-    background-image: url("https://en.wikipedia.org/wiki/War#/media/File:Into_the_Jaws_of_Death_23-0455M_edit.jpg");
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Trinity_Detonation_T%26B.jpg/1280px-Trinity_Detonation_T%26B.jpg");
+    background-size: cover;
+    color: white;
   }
 
   h1, h2, p {
@@ -23,13 +25,11 @@ html, * {
   }
   .scoreboard > #playerscore {
     display:grid;
-    grid-template-columns: 15% 70% 15%;
     grid-template-start:2;
   }
 
   .scoreboard > #computerscore {
     display:grid;
-    grid-template-columns: 15% 70% 15%;
     grid-template-start: 3;
   }
 
@@ -43,9 +43,7 @@ html, * {
     display: grid;
     grid-column-start: 2;
     margin: 10px 0 10px;
-   
-   
-  }
+   }
   
   
   .card-container {
@@ -57,23 +55,33 @@ html, * {
 
   #player-deck {
     margin-right: 15%;
-
   }
 
   #computer-deck {
     margin-left: 15%;
   }
+  #player-war {
+    visibility: hidden;
+  }
+  #computer-war {
+    visibility: hidden;
+  }
 
   .scoreboard {
-    display:flex;
+    display: flex;
+    justify-content:space-between;
+    width:100vw;
+    height:50px;
+
   }
 
   #playerscore {
     margin-left: 15%;
+    
   }
 
   #computerscore {
-    margin-left: 15%;
+    margin-right: 15%;
   }
 
   button {
@@ -85,11 +93,11 @@ html, * {
     border: 1px solid grey;
     border-radius: 4px;
     outline: none;
-    background-color: black;
+    background-color: rgb(178, 60, 43);
   }
   
   button:hover {
-    background-color: grey;
+    background-color: black;
     color: white;
     cursor: pointer;
   }
