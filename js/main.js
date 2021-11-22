@@ -21,7 +21,7 @@ const warCards = document.querySelectorAll('.war');
 
 /*----- event listeners -----*/
 playGame.addEventListener('click', play);
-// warCards.addEventListener('click', renderBoard);
+
 
 /*----- functions -----*/
 initialize();
@@ -30,13 +30,13 @@ function initialize() {
   shuffledDeck = getNewShuffledDeck();
   playerDeck = [];
   computerDeck = [];
-  playerHand = [];
-  computerHand = [];
-  playerWarDeck = [];
-  computerWarDeck = [];
+  playerHand = {};
+  computerHand = {};
+  playerWarDeck = {};
+  computerWarDeck = {};
   playerScore = 0;
   computerScore = 0;
-  winner = null;
+  winner = " ";
   deal();
   renderScreen ();
 }
@@ -87,15 +87,11 @@ function play(e) {
       }else if (playerHand.value > computerHand.value) {
             playerDeck.push(playerHand);
             playerDeck.push(computerHand);
-            playerDeck.push(playerWarDeck);
-            playerDeck.push(computerWarDeck);
             playerScore++;
       }else{ 
-        computerDeck.push(computerHand);
         computerDeck.push(playerHand);
-        computerDeck.push(computerWarDeck);
-        computerDeck.push(playerWarDeck);
-            computerScore++;
+        computerDeck.push(computerHand);
+        computerScore++;
   }
 };
 
@@ -106,7 +102,25 @@ function war(e) {
   randomIndex = Math.floor(Math.random() * 2);
   playerHand = playerWarDeck[randomIndex];
   computerHand = computerWarDeck[randomIndex];
+  if (playerHand.value > computerHand.value) {
+      playerDeck.push()
+  }else if (playerHand.value < computerHand.value) {
+    computerDeck.push()
+  }else{
+    return war();
+  }
 }
+
+function winner {
+  if (playerDeck.length === 52) {
+    winner = "Player";
+  }else if (computerDeck === 52) {
+    winner = "Computer":
+  }else{
+    winner = "";
+  }
+}
+
  //need to create a class for WAR that shows a screen that fills with as many cards as necessary if mulitple ties happen 
 function renderScreen() {
 
