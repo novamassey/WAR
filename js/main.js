@@ -16,11 +16,11 @@ let shuffledDeck, playerDeck, computerDeck, playerHand, computerHand, playerWarD
 
 
 /*----- cached element references -----*/
-// const playGame = document.getElementById('play');
+const playGame = document.querySelector('button');
 const warCards = document.querySelectorAll('.war');
 
 /*----- event listeners -----*/
-// playGame.addEventListener('click', play);
+playGame.addEventListener('click', play);
 // warCards.addEventListener('click', renderBoard);
 
 /*----- functions -----*/
@@ -38,7 +38,7 @@ function initialize() {
   computerScore = 0;
   winner = null;
   deal();
-  // renderScreen ();
+  renderScreen ();
 }
 function buildMasterDeck() {
   const deck = [];
@@ -79,56 +79,41 @@ function deal() {
   });
 }
 
-// function play(e) {
-//   playerHand = playerDeck.shift();
-//   computerHand = computerDeck.shift();
-//   for ( let i = 0; i < playerHand.length; i++)  { 
-//         for( let j  =  0; j < computerHand.length;  j++) {
-//           if (playerHand[i].points === computerHand[j].points){
-//             playerWarDeck = playerDeck.splice(0, 2);//take two cards from deck to warDeck
-//             computerWarDeck = computerDeck.splice(0, 2);
-//             //need function to wait for clicked card to determine which cards to compare
-            
-
-//           }else if (playerHand[i].points > computerHand[j].points) {
-//             playerDeck.push(playerHand[i] && computerHand[j]);
-//             playerScore++;
-//           }else{(playerHand[i].points < computerHand[j].points)  {
-//             computerDeck.push(playerHand[i] && computerHand[j]);
-//             computerScore++;
-//           }
-//         }
-//   }
-  
+function play(e) {
+  playerHand = playerDeck.shift();
+  computerHand = computerDeck.shift();
+      if (playerHand.value === computerHand.value) {
+        return war();
+      }else if (playerHand.value > computerHand.value) {
+            playerDeck.push(playerHand);
+            playerDeck.push(computerHand);
+            playerDeck.push(playerWarDeck);
+            playerDeck.push(computerWarDeck);
+            playerScore++;
+      }else{ 
+        computerDeck.push(computerHand);
+        computerDeck.push(playerHand);
+        computerDeck.push(computerWarDeck);
+        computerDeck.push(playerWarDeck);
+            computerScore++;
+  }
+};
 
   
+function war(e) {
+  playerWarDeck = playerDeck.splice(0, 2);
+  computerWarDeck =  computerDeck.splice(0, 2);
+  randomIndex = Math.floor(Math.random() * 2);
+  playerHand = playerWarDeck[randomIndex];
+  computerHand = computerWarDeck[randomIndex];
+}
+ //need to create a class for WAR that shows a screen that fills with as many cards as necessary if mulitple ties happen 
+function renderScreen() {
+
+}
+  
 
 
 
 
 
-// function renderNewShuffledDeck() {
-//   // Create a copy of the masterDeck (leave masterDeck untouched!)
-//   shuffledDeck = getNewShuffledDeck();
-//   renderDeckInContainer(shuffledDeck, shuffledContainer);
-// }
-
-
-
-
-// function renderDeckInContainer(deck, container) {
-//   container.innerHTML = '';
-//   // Let's build the cards as a string of HTML
-//   let cardsHtml = '';
-//   deck.forEach(function(card) {
-//     cardsHtml += `<div class="card ${card.face}"></div>`;
-//   });
-//   // Or, use reduce to 'reduce' the array into a single thing - in this case a string of HTML markup 
-//   // const cardsHtml = deck.reduce(function(html, card) {
-//   //   return html + `<div class="card ${card.face}"></div>`;
-//   // }, '');
-//   container.innerHTML = cardsHtml;
-// }
-
-// renderNewShuffledDeck();
-//
