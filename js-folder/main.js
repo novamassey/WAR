@@ -47,8 +47,8 @@ function initialize() {
   playerScore = 0;
   computerScore = 0;
   winner = null;
-  renderScreen ();
   deal();
+  renderScreen ();
 }
 
 function buildMasterDeck() {
@@ -81,8 +81,8 @@ function getNewShuffledDeck() {
 }
 
 function deal() {
-  for(let i = 0; i < shuffledDeck.length; i++) {
-    if (i % 2 === 0) {
+  for (let i = 0; i < shuffledDeck.length; i++)  {
+    if (i % 2 === 0) { //change to a do while or while loop since the for loop with be done once index is  even
       playerDeck.push();
     }else { 
       computerDeck.push();
