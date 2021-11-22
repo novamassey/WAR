@@ -1,21 +1,21 @@
 /*----- constants -----*/
 const suits = ['s', 'c', 'd', 'h'];
-const ranks = ['02', '03', '04', '05', '06', '07', '08', '09', '10', 'J', 'Q', 'K', 'A'];
-const cardLookup = {
-  '02' : 2,
-  '03' : 3,
-  '04' : 4,
-  '05' : 5,
-  '06' : 6,
-  '07' : 7,
-  '08' : 8,
-  '09' : 9,
-  '10' : 10,
-  'J' : 11,
-  'Q' : 12,
-  'K' : 13,
-  'A': 14, 
-};
+// const ranks = ['02', '03', '04', '05', '06', '07', '08', '09', '10', 'J', 'Q', 'K', 'A'];
+const cardLookup = [
+  {rank:'02', points: 2},
+  {rank:'03', points: 3},
+  {rank:'04', points: 4},
+  {rank:'05', points: 5},
+  {rank:'06', points: 6},
+  {rank:'07', points: 7},
+  {rank:'08', points: 8},
+  {rank:'09', points: 9},
+  {rank:'10', points: 10},
+  {rank:'J', points: 11},
+  {rank:'Q', points: 12},
+  {rank:'K', points: 13},
+  {rank:'A', points: 14}, 
+];
 
 
 // Build a 'master' deck of 'card' objects used to create shuffled decks
@@ -27,32 +27,19 @@ let shuffledDeck, playerDeck, computerDeck, playerHand, computerHand, playerScor
 
 
 /*----- cached element references -----*/
-
+const playGame = document.getElementById('.play');
+const warCards = document.querySelectorAll('.war');
 
 /*----- event listeners -----*/
-
+playGame.addEventListener('click', playGame);
+warCards.addEventListener('click', renderBoard);
 
 /*----- functions -----*/
 function initialize();
 
-function buildMasterDeck() {
-  const deck = [];
-  // Use nested forEach to generate card objects
-  suits.forEach(function(suit) {
-    ranks.forEach(function(rank) {
-      deck.push({
-        // The 'face' property maps to the library's CSS classes for cards
-        face: `${suit}${rank}`,
-        // Setting the 'value' property for game of blackjack, not war
-         value: Number(rank) || cardLookUp[rank] //(rank === 'A' ? 11 : 10)
-      });
-    });
-  });
-  return deck;
-}
 
 function initialize() {
-  shuffledDeck = getNewShuffledDeckplayer;
+  shuffledDeck = getNewShuffledDeck();
   playerDeck = [];
   computerDeck = [];
   playerHand = [];
@@ -61,22 +48,23 @@ function initialize() {
   computerScore = 0;
   winner = null;
   renderScreen ();
+  deal();
 }
 
 function buildMasterDeck() {
   const deck = [];
   // Use nested forEach to generate card objects
   suits.forEach(function(suit) {
-    ranks.forEach(function(rank) {
+    cardLookup.forEach(function(rank, points) {
       deck.push({
         // The 'face' property maps to the library's CSS classes for cards
         face: `${suit}${rank}`,
         // Setting the 'value' property for game of blackjack, not war
-        value: Number(rank) || cardLookup[rank]
+         value: cardLookUp.points //(rank === 'A' ? 11 : 10)
       });
     });
   });
-  return deck;
+  return deck; 
 }
 
 function getNewShuffledDeck() {
@@ -93,25 +81,54 @@ function getNewShuffledDeck() {
 }
 
 function deal() {
-  shuffledDeck.forEach(function(card, index){
-    if (card[index] % 2 === 0) {
+  for(let i = 0; i < shuffledDeck.length; i++) {
+    if (i % 2 === 0) {
       playerDeck.push();
     }else { 
       computerDeck.push();
     }
-  });
+  };
 
-function play() {
+function play(e) {
+  playerHand = playerDeck.shift();
+  computerHand = computerDeck.shift();
+  for ( let i = 0; i < playerHand.length; i++)  { 
+        for( let j  =  0; j < computerHand.length;  j++) {
+          if (playerHand[i].points > computerHand[j].points) {
+            playerDeck.push(playerHand[i] && computerHand[j]);
+            playerScore++;
+          }else if (playerHand[i].points < computerHand[j].points)  {
+            computerDeck.push(playerHand[i] && computerHand[j]);
+            computerScore++;
+          }else{
+            // PLAY WAR FUNCTION
+          }
+        }
+  }
+  
+ 
+    
+  
+  }
 
   
-}
 
 
-
-
-
-
-
+// function buildMasterDeck() {
+//   const deck = [];
+//   // Use nested forEach to generate card objects
+//   suits.forEach(function(suit) {
+//     ranks.forEach(function(rank) {
+//       deck.push({
+//         // The 'face' property maps to the library's CSS classes for cards
+//         face: `${suit}${rank}`,
+//         // Setting the 'value' property for game of blackjack, not war
+//          value: Number(rank) || cardLookUp[rank] //(rank === 'A' ? 11 : 10)
+//       });
+//     });
+//   });
+//   return deck;
+// }
 
 
 // function renderNewShuffledDeck() {

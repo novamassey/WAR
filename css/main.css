@@ -4,9 +4,9 @@ html, * {
   
   html, body {
     height: 100%;
-    background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Trinity_Detonation_T%26B.jpg/1280px-Trinity_Detonation_T%26B.jpg");
+    /* background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Trinity_Detonation_T%26B.jpg/1280px-Trinity_Detonation_T%26B.jpg"); */
     background-size: cover;
-    color: white;
+    color: black;
   }
 
   h1, h2, p {
