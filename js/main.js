@@ -70,15 +70,14 @@ function getNewShuffledDeck() {
 }
 
 function deal() {
-  for (let i = 0; i < shuffledDeck.length; i++)  {
-    if (i % 2 === 0) { //change to a do while or while loop since the for loop with be done once index is  even
-      playerDeck.push();
-    }else { 
-      computerDeck.push();
+  shuffledDeck.forEach(function(card, index) {
+    if(index % 2 === 0){
+      playerDeck.push(card);
+    }else{
+      computerDeck.push(card);
     }
-  }
-};
-
+  });
+}
 
 // function play(e) {
 //   playerHand = playerDeck.shift();
@@ -132,3 +131,4 @@ function deal() {
 // }
 
 // renderNewShuffledDeck();
+//
