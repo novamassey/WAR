@@ -23,7 +23,7 @@ const masterDeck = buildMasterDeck();
 
 
 /*----- app's state (variables) -----*/
-let shuffledDeck, playerDeck, computerDeck, playerHand, computerHand, playerScore, computerScore, winner;
+let shuffledDeck, playerDeck, computerDeck, playerHand, computerHand, playerWarDeck, computerWarDeck, playerScore, computerScore, winner;
 
 
 /*----- cached element references -----*/
@@ -44,6 +44,8 @@ function initialize() {
   computerDeck = [];
   playerHand = [];
   computerHand = [];
+  playerWarDeck = [];
+  computerWarDeck = [];
   playerScore = 0;
   computerScore = 0;
   winner = null;
@@ -94,27 +96,27 @@ function play(e) {
   computerHand = computerDeck.shift();
   for ( let i = 0; i < playerHand.length; i++)  { 
         for( let j  =  0; j < computerHand.length;  j++) {
-          if (playerHand[i].points > computerHand[j].points) {
+          if (playerHand[i].points === computerHand[j].points){
+            playerWarDeck = playerDeck.splice(0, 2);//take two cards from deck to warDeck
+            computerWarDeck = computerDeck.splice(0, 2);
+            //need function to wait for clicked card to determine which cards to compare
+            
+
+          }else if (playerHand[i].points > computerHand[j].points) {
             playerDeck.push(playerHand[i] && computerHand[j]);
             playerScore++;
-          }else if (playerHand[i].points < computerHand[j].points)  {
+          }else{(playerHand[i].points < computerHand[j].points)  {
             computerDeck.push(playerHand[i] && computerHand[j]);
             computerScore++;
-          }else{
-            // PLAY WAR FUNCTION
           }
         }
   }
   
- 
-    
-  
-  }
 
   
 
 
-// function buildMasterDeck() {
+// function buildMasterDeck() 
 //   const deck = [];
 //   // Use nested forEach to generate card objects
 //   suits.forEach(function(suit) {
