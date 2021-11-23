@@ -1,6 +1,7 @@
 /*----- constants -----*/
 const suits = ['s', 'c', 'd', 'h'];
-const ranks = ['02', '03', '04', '05', '06', '07', '08', '09', '10', 'J', 'Q', 'K', 'A'];
+// const ranks = ['02', '03', '04', '05', '06', '07', '08', '09', '10', 'J', 'Q', 'K', 'A'];
+const ranks = ['02', '02', '02', '02', '02', '02', '02', '02', '02', 'J', 'Q', 'K', 'A'];
 const cardLookup = {
   'J': 11,
   'Q': 12,
@@ -19,6 +20,7 @@ let shuffledDeck, playerDeck, computerDeck, playerHand, computerHand, playerWarD
 const playGame = document.querySelector('button');
 const warCards = document.querySelectorAll('.war');
 
+
 /*----- event listeners -----*/
 playGame.addEventListener('click', play);
 
@@ -36,7 +38,7 @@ function initialize() {
   computerWarDeck = {};
   playerScore = 0;
   computerScore = 0;
-  winner = " ";
+  winner = null;
   deal();
   renderScreen ();
 }
@@ -93,37 +95,49 @@ function play(e) {
         computerDeck.push(computerHand);
         computerScore++;
   }
+  console.log(playerHand);
+  console.log(computerHand);
 };
 
   
-function war(e) {
+function war() {
   playerWarDeck = playerDeck.splice(0, 2);
   computerWarDeck =  computerDeck.splice(0, 2);
-  randomIndex = Math.floor(Math.random() * 2);
+  randomIndex = Math.floor(Math.random() * playerWarDeck.length-1);
   playerHand = playerWarDeck[randomIndex];
   computerHand = computerWarDeck[randomIndex];
-  if (playerHand.value > computerHand.value) {
-      playerDeck.push()
-  }else if (playerHand.value < computerHand.value) {
-    computerDeck.push()
+  let pValue = playerHand.value;
+  let cValue = computerHand.value;
+  if (pValue > cValue) {
+      playerDeck.push(playerHand);
+      playerDeck.push(computerHand);
+  }else if (pValue < cValue) {
+    computerDeck.push(computerHand);
+    computerDeck.push(playerHand);
   }else{
     return war();
   }
 }
 
-function winner {
+function getWinner() {
   if (playerDeck.length === 52) {
-    winner = "Player";
+    winner = 'Player';
   }else if (computerDeck === 52) {
-    winner = "Computer":
+    winner = 'Computer';
   }else{
-    winner = "";
+    winner = '';
   }
-}
+};
 
  //need to create a class for WAR that shows a screen that fills with as many cards as necessary if mulitple ties happen 
 function renderScreen() {
-
+  document.getElementById('score-p').innerText = playerScore;
+  document.getElementById('score-c').innerText = computerScore;
+  document.getElementById('player-play').classList.add(playerHand.face);
+  document.getElementById('computer-play').classList.add(computerHand.face);
+  if (winner !== null) {
+    document.querySelector('h2').innerText =  `${winner} wins this round of WAR!`;
+}
 }
   
 

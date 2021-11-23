@@ -25,12 +25,12 @@ html, * {
   }
   .scoreboard > #playerscore {
     display:grid;
-    grid-template-start:2;
+    
   }
 
   .scoreboard > #computerscore {
     display:grid;
-    grid-template-start: 3;
+    
   }
 
   .rules {
