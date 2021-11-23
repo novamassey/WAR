@@ -32,8 +32,8 @@ function initialize() {
   shuffledDeck = getNewShuffledDeck();
   playerDeck = [];
   computerDeck = [];
-  playerHand = [];
-  computerHand = [];
+  playerHand = {};
+  computerHand = {};
   playerWarDeck = [];
   computerWarDeck = [];
   playerScore = 0;
@@ -84,36 +84,46 @@ function deal() {
 function play(e) {
   playerHand = playerDeck.shift();
   computerHand = computerDeck.shift();
-  if (playerHand.value > computerHand.value) {
-        playerDeck.push(playerHand && computerHand);
-        playerScore++;
+  console.log('cards', playerHand, computerHand);
+  if (winner !== null) {
+   return;
       }else if (playerHand.value > computerHand.value) {
-        computerDeck.push(playerHand && computerHand);
+        playerDeck.push(playerHand)
+        playerDeck.push(computerHand);
+        playerScore++;
+      }else if (playerHand.value < computerHand.value){
+        computerDeck.push(playerHand)
+        playerDeck.push(computerHand);
         computerScore++;
       }else{
+        console.log('war happend');
         war();
   }
-  console.log(playerHand);
-  console.log(computerHand);
-  console.log(playerDeck);
-  console.log(computerDeck);
+//   console.log(playerHand);
+//   console.log(computerHand);
+//   console.log(playerDeck);
+//   console.log(computerDeck);
 };
 
   
 function war(e) {
-  playerWarDeck = playerDeck.splice(0, 2);
-  computerWarDeck = computerDeck.splice(0, 2);
-  randomIndex = Math.floor(Math.random() * (playerWarDeck.length));
-  playerHand = playerWarDeck[randomIndex];
-  computerHand = computerWarDeck[randomIndex];
+  playerWarDeck.push(...playerDeck.splice(0, 2));
+  computerWarDeck.push(...computerDeck.splice(0, 2));
+  randomIndex = Math.floor(Math.random() * playerWarDeck.length);
+   let playerWarHand = playerWarDeck[randomIndex];
+  let computerWarHand = computerWarDeck[randomIndex];
   // let pValue = playerHand.value;
   // let cValue = computerHand.value;
-  if (playerHand.value > computerHand.value) {
-      playerDeck.push(playerWarDeck);
-      playerDeck.push(computerWarDeck);
-  }else if (playerHand.value < computerHand.value) {
-    computerDeck.push(computerWarDeck);
-    computerDeck.push(playerWarDeck);
+  if (playerWarHand.value > computerWarHand.value) {
+      playerDeck.push(...playerWarDeck);
+      playerDeck.push(...computerWarDeck);
+      playerDeck.push(playerHand);
+      playerDeck.push(computerHand);
+  }else if (playerWarHand.value < computerWarHand.value) {
+    computerDeck.push(...computerWarDeck);
+    computerDeck.push(...playerWarDeck);
+    computerDeck.push(playerHand);
+    computerDeck.push(computerHand);
   }else{
    war();
   }
@@ -133,8 +143,8 @@ function getWinner() {
 function renderScreen() {
   document.getElementById('score-p').innerText = playerScore;
   document.getElementById('score-c').innerText = computerScore;
-  document.getElementById('player-play').classList.add(playerHand.face);
-  document.getElementById('computer-play').classList.add(computerHand.face);
+  document.getElementById('player-play').className = playerHand.face;
+  document.getElementById('computer-play').className = computerHand.face;
   if (winner !== null) {
     document.querySelector('h2').innerText =  `${winner} wins this round of WAR!`;
 }
