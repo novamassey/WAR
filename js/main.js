@@ -85,7 +85,7 @@ function play(e) {
   playerHand = playerDeck.shift();
   computerHand = computerDeck.shift();
       if (playerHand.value === computerHand.value) {
-        return war();
+        war();
       }else if (playerHand.value > computerHand.value) {
             playerDeck.push(playerHand);
             playerDeck.push(computerHand);
@@ -102,8 +102,8 @@ function play(e) {
   
 function war() {
   playerWarDeck = playerDeck.splice(0, 2);
-  computerWarDeck =  computerDeck.splice(0, 2);
-  randomIndex = Math.floor(Math.random() * playerWarDeck.length-1);
+  computerWarDeck = computerDeck.splice(0, 2);
+  randomIndex = Math.floor(Math.random() * (playerWarDeck.length-1));
   playerHand = playerWarDeck[randomIndex];
   computerHand = computerWarDeck[randomIndex];
   let pValue = playerHand.value;
@@ -115,7 +115,7 @@ function war() {
     computerDeck.push(computerHand);
     computerDeck.push(playerHand);
   }else{
-    return war();
+   war();
   }
 }
 
