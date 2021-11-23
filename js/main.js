@@ -32,8 +32,8 @@ function initialize() {
   shuffledDeck = getNewShuffledDeck();
   playerDeck = [];
   computerDeck = [];
-  playerHand = [{}];
-  computerHand = [{}];
+  playerHand = [];
+  computerHand = [];
   playerWarDeck = [];
   computerWarDeck = [];
   playerScore = 0;
@@ -84,19 +84,14 @@ function deal() {
 function play(e) {
   playerHand = playerDeck.shift();
   computerHand = computerDeck.shift();
-  if (winner) {
-      return;
-      }else if (playerHand.value > computerHand.value) {
-        playerDeck.push(playerHand);
-        playerDeck.push(computerHand);
+  if (playerHand.value > computerHand.value) {
+        playerDeck.push(playerHand && computerHand);
         playerScore++;
-      }else if (playerHand.value < computerHand.value) {
-        computerDeck.push(playerHand);
-        computerDeck.push(computerHand);
+      }else if (playerHand.value > computerHand.value) {
+        computerDeck.push(playerHand && computerHand);
         computerScore++;
-      }else{ 
+      }else{
         war();
-        winner = getWinner();
   }
   console.log(playerHand);
   console.log(computerHand);
@@ -108,17 +103,17 @@ function play(e) {
 function war(e) {
   playerWarDeck = playerDeck.splice(0, 2);
   computerWarDeck = computerDeck.splice(0, 2);
-  randomIndex = Math.floor(Math.random() * (playerWarDeck.length-1));
+  randomIndex = Math.floor(Math.random() * (playerWarDeck.length));
   playerHand = playerWarDeck[randomIndex];
   computerHand = computerWarDeck[randomIndex];
   // let pValue = playerHand.value;
   // let cValue = computerHand.value;
   if (playerHand.value > computerHand.value) {
-      playerDeck.push(playerHand);
-      playerDeck.push(computerHand);
+      playerDeck.push(playerWarDeck);
+      playerDeck.push(computerWarDeck);
   }else if (playerHand.value < computerHand.value) {
-    computerDeck.push(computerHand);
-    computerDeck.push(playerHand);
+    computerDeck.push(computerWarDeck);
+    computerDeck.push(playerWarDeck);
   }else{
    war();
   }
