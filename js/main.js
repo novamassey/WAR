@@ -84,10 +84,9 @@ function deal() {
 function play(e) {
   playerHand = playerDeck.shift();
   computerHand = computerDeck.shift();
-  // if (winner !== null) {
-  //   return;
-  // }else
-      if (playerHand.value > computerHand.value) {
+  if (winner) {
+      return;
+      }else if (playerHand.value > computerHand.value) {
         playerDeck.push(playerHand);
         playerDeck.push(computerHand);
         playerScore++;
@@ -104,7 +103,7 @@ function play(e) {
 };
 
   
-function war() {
+function war(e) {
   playerWarDeck = playerDeck.splice(0, 2);
   computerWarDeck = computerDeck.splice(0, 2);
   randomIndex = Math.floor(Math.random() * (playerWarDeck.length-1));
