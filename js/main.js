@@ -100,6 +100,8 @@ function play(e) {
   }
   console.log(playerHand);
   console.log(computerHand);
+  console.log(playerDeck);
+  console.log(computerDeck);
 };
 
   
@@ -109,12 +111,12 @@ function war(e) {
   randomIndex = Math.floor(Math.random() * (playerWarDeck.length-1));
   playerHand = playerWarDeck[randomIndex];
   computerHand = computerWarDeck[randomIndex];
-  let pValue = playerHand.value;
-  let cValue = computerHand.value;
-  if (pValue > cValue) {
+  // let pValue = playerHand.value;
+  // let cValue = computerHand.value;
+  if (playerHand.value > computerHand.value) {
       playerDeck.push(playerHand);
       playerDeck.push(computerHand);
-  }else if (pValue < cValue) {
+  }else if (playerHand.value < computerHand.value) {
     computerDeck.push(computerHand);
     computerDeck.push(playerHand);
   }else{
