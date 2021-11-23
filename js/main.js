@@ -41,8 +41,8 @@ function initialize() {
   computerScore = 0;
   winner = null;
   deal();
-  
 }
+
 function buildMasterDeck() {
   const deck = [];
   // Use nested forEach to generate card objects
@@ -143,10 +143,10 @@ function toggleClass() {
 }
 
  //need to create a class for WAR that shows a screen that fills with as many cards as necessary if mulitple ties happen 
-function renderScreen(e) {
+function renderScreen() {
   console.log(playerHand);
-  document.getElementById('player-play').classList.toggle("back-red", playerHand.face);
-  document.getElementById('computer-play').classList.toggle("back-red", computerHand.face);
+  document.getElementById('player-play').classList.toggle(`${playerHand.face}`);
+  document.getElementById('computer-play').classList.toggle(computerHand.face);
   document.getElementById('score-p').innerText = `${playerScore}`;
   document.getElementById('score-c').innerText = `${computerScore}`;
   if (winner !== null) {

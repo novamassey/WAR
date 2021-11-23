@@ -73,12 +73,7 @@ html, * {
   #computer-deck {
     margin-left: 15%;
   }
-  #player-war {
-    visibility: hidden;
-  }
-  #computer-war {
-    visibility: hidden;
-  }
+ 
 
   .scoreboard {
     display: flex;
