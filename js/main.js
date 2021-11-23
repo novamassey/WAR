@@ -32,10 +32,10 @@ function initialize() {
   shuffledDeck = getNewShuffledDeck();
   playerDeck = [];
   computerDeck = [];
-  playerHand = {};
-  computerHand = {};
-  playerWarDeck = {};
-  computerWarDeck = {};
+  playerHand = [{}];
+  computerHand = [{}];
+  playerWarDeck = [];
+  computerWarDeck = [];
   playerScore = 0;
   computerScore = 0;
   winner = null;
@@ -84,16 +84,20 @@ function deal() {
 function play(e) {
   playerHand = playerDeck.shift();
   computerHand = computerDeck.shift();
-      if (playerHand.value === computerHand.value) {
-        war();
-      }else if (playerHand.value > computerHand.value) {
-            playerDeck.push(playerHand);
-            playerDeck.push(computerHand);
-            playerScore++;
-      }else{ 
+  // if (winner !== null) {
+  //   return;
+  // }else
+      if (playerHand.value > computerHand.value) {
+        playerDeck.push(playerHand);
+        playerDeck.push(computerHand);
+        playerScore++;
+      }else if (playerHand.value < computerHand.value) {
         computerDeck.push(playerHand);
         computerDeck.push(computerHand);
         computerScore++;
+      }else{ 
+        war();
+        winner = getWinner();
   }
   console.log(playerHand);
   console.log(computerHand);
@@ -125,7 +129,7 @@ function getWinner() {
   }else if (computerDeck === 52) {
     winner = 'Computer';
   }else{
-    winner = '';
+    winner = null;
   }
 };
 
