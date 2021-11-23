@@ -17,11 +17,23 @@ html, * {
     display: flex;
     justify-content: center;
     align-content: space-between;
+    visibility: visible;
+    height:max-content;
+  }
+
+    .war-container {
+    display: flex;
+    justify-content: center;
+    align-content: space-between;
+    margin: -15px 10px 0 10px;
+    opacity:0;
+
   }
 
   .scoreboard {
     display: inline-block;
     grid-template-columns: 15% 70% 15%;
+  
   }
   .scoreboard > #playerscore {
     display:grid;
@@ -37,6 +49,7 @@ html, * {
     max-width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    visibility: visible;
   }
 
   .rules > h2, p {

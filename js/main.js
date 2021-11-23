@@ -1,7 +1,6 @@
 /*----- constants -----*/
 const suits = ['s', 'c', 'd', 'h'];
-// const ranks = ['02', '03', '04', '05', '06', '07', '08', '09', '10', 'J', 'Q', 'K', 'A'];
-const ranks = ['02', '02', '02', '02', '02', '02', '02', '02', '02', 'J', 'Q', 'K', 'A'];
+const ranks = ['02', '03', '04', '05', '06', '07', '08', '09', '10', 'J', 'Q', 'K', 'A'];
 const cardLookup = {
   'J': 11,
   'Q': 12,
@@ -17,12 +16,14 @@ let shuffledDeck, playerDeck, computerDeck, playerHand, computerHand, playerWarD
 
 
 /*----- cached element references -----*/
-const playGame = document.querySelector('button');
+const playWar = document.querySelector('button');
 const warCards = document.querySelectorAll('.war');
+playerHandCard = document.getElementById('player-play');
+computerHandCard = document.getElementById('computer-play');
 
 
 /*----- event listeners -----*/
-playGame.addEventListener('click', play);
+playWar.addEventListener('click', play);
 
 
 /*----- functions -----*/
@@ -40,7 +41,7 @@ function initialize() {
   computerScore = 0;
   winner = null;
   deal();
-  renderScreen ();
+  
 }
 function buildMasterDeck() {
   const deck = [];
@@ -93,27 +94,25 @@ function play(e) {
         playerScore++;
       }else if (playerHand.value < computerHand.value){
         computerDeck.push(playerHand)
-        playerDeck.push(computerHand);
+        computerDeck.push(computerHand);
         computerScore++;
       }else{
         console.log('war happend');
         war();
   }
-//   console.log(playerHand);
-//   console.log(computerHand);
-//   console.log(playerDeck);
-//   console.log(computerDeck);
+  getWinner();
+  console.log(computerDeck);
+  renderScreen();
 };
 
   
 function war(e) {
   playerWarDeck.push(...playerDeck.splice(0, 2));
   computerWarDeck.push(...computerDeck.splice(0, 2));
+  //... to not just replace the war deck if war happens again, this will push all cards spliced into the war deck
   randomIndex = Math.floor(Math.random() * playerWarDeck.length);
    let playerWarHand = playerWarDeck[randomIndex];
   let computerWarHand = computerWarDeck[randomIndex];
-  // let pValue = playerHand.value;
-  // let cValue = computerHand.value;
   if (playerWarHand.value > computerWarHand.value) {
       playerDeck.push(...playerWarDeck);
       playerDeck.push(...computerWarDeck);
@@ -130,26 +129,44 @@ function war(e) {
 }
 
 function getWinner() {
-  if (playerDeck.length === 52) {
+  if (playerDeck.length >= 51) {
     winner = 'Player';
-  }else if (computerDeck === 52) {
+  }else if (computerDeck <= 51) {
     winner = 'Computer';
   }else{
     winner = null;
   }
 };
 
+function toggleClass() {
+  playWar.addEventListener
+}
+
  //need to create a class for WAR that shows a screen that fills with as many cards as necessary if mulitple ties happen 
-function renderScreen() {
-  document.getElementById('score-p').innerText = playerScore;
-  document.getElementById('score-c').innerText = computerScore;
-  document.getElementById('player-play').className = playerHand.face;
-  document.getElementById('computer-play').className = computerHand.face;
+function renderScreen(e) {
+  console.log(playerHand);
+  document.getElementById('player-play').classList.toggle("back-red", playerHand.face);
+  document.getElementById('computer-play').classList.toggle("back-red", computerHand.face);
+  document.getElementById('score-p').innerText = `${playerScore}`;
+  document.getElementById('score-c').innerText = `${computerScore}`;
   if (winner !== null) {
     document.querySelector('h2').innerText =  `${winner} wins this round of WAR!`;
-}
-}
-  
+    }
+  // if (playerHand.value === computerHand.value) {
+  //   document.querySelector('.game-container').style.height = 0;
+  //   document.querySelector('.war-container').style.opacity = 1;
+  //   playWar.innerText = "WAR!";
+  //   }else {
+  //     document.querySelector('.game-container').style.height = max-content;
+  //     document.querySelector('.war-container').style.opacity = 0;
+      // playWar.innerText = "Play";
+   // }
+  }
+
+
+
+
+
 
 
 
