@@ -45,13 +45,10 @@ function initialize() {
 
 function buildMasterDeck() {
   const deck = [];
-  // Use nested forEach to generate card objects
   suits.forEach(function(suit) {
     ranks.forEach(function(rank) {
       deck.push({
-        // The 'face' property maps to the library's CSS classes for cards
         face: `${suit}${rank}`,
-        // Setting the 'value' property for game of blackjack, not war
         value: Number(rank) || cardLookup[rank]
       });
     });
@@ -60,13 +57,10 @@ function buildMasterDeck() {
 }
 
 function getNewShuffledDeck() {
-  // Create a copy of the masterDeck (leave masterDeck untouched!)
   const tempDeck = [...masterDeck];
   const newShuffledDeck = [];
   while (tempDeck.length) {
-    // Get a random index for a card still in the tempDeck
     const rndIdx = Math.floor(Math.random() * tempDeck.length);
-    // Note the [0] after splice - this is because splice always returns an array and we just want the card object in that array
     newShuffledDeck.push(tempDeck.splice(rndIdx, 1)[0]);
   }
   return newShuffledDeck;
@@ -142,11 +136,11 @@ function toggleClass() {
   playWar.addEventListener
 }
 
- //need to create a class for WAR that shows a screen that fills with as many cards as necessary if mulitple ties happen 
+ 
 function renderScreen() {
   console.log(playerHand);
-  document.getElementById('player-play').classList.toggle(`${playerHand.face}`);
-  document.getElementById('computer-play').classList.toggle(computerHand.face);
+  document.getElementById('player-play').className = `card xlarge ${playerHand.face}`;
+  document.getElementById('computer-play').className =`card xlarge ${computerHand.face}`;
   document.getElementById('score-p').innerText = `${playerScore}`;
   document.getElementById('score-c').innerText = `${computerScore}`;
   if (winner !== null) {
