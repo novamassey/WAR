@@ -79,9 +79,9 @@ function deal() {
 function play(e) {
   playerHand = playerDeck.shift();
   computerHand = computerDeck.shift();
-  console.log('cards', playerHand, computerHand);
+  console.log('cards', playerHand, computerHand, playerDeck, computerDeck);
   if (winner !== null) {
-   return;
+   initialize();
       }else if (playerHand.value > computerHand.value) {
         playerDeck.push(playerHand)
         playerDeck.push(computerHand);
@@ -95,7 +95,6 @@ function play(e) {
         war();
   }
   getWinner();
-  console.log(computerDeck);
   renderScreen();
 };
 
@@ -113,10 +112,10 @@ function war(e) {
       playerDeck.push(playerHand);
       playerDeck.push(computerHand);
   }else if (playerWarHand.value < computerWarHand.value) {
-    computerDeck.push(...computerWarDeck);
-    computerDeck.push(...playerWarDeck);
-    computerDeck.push(playerHand);
-    computerDeck.push(computerHand);
+      computerDeck.push(...computerWarDeck);
+      computerDeck.push(...playerWarDeck);
+      computerDeck.push(playerHand);
+      computerDeck.push(computerHand);
   }else{
    war();
   }

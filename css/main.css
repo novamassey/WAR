@@ -26,8 +26,13 @@ html, * {
     justify-content: center;
     align-content: space-between;
     margin: -15px 10px 0 10px;
-    display: none;
+    
   }
+
+  .hidden {
+    display:none;
+  }
+  
 
   .scoreboard {
     display: inline-block;
