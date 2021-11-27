@@ -16,7 +16,7 @@ let shuffledDeck, playerDeck, computerDeck, playerHand, computerHand, playerWarD
 
 
 /*----- cached element references -----*/
-const playWar = document.querySelector('button');
+const playWar = document.querySelector('.play');
 const warCards = document.querySelectorAll('.war');
 playerHandCard = document.getElementById('player-play');
 computerHandCard = document.getElementById('computer-play');
@@ -81,7 +81,7 @@ function play(e) {
   computerHand = computerDeck.shift();
   console.log('cards', playerHand, computerHand, playerDeck, computerDeck);
   if (winner !== null) {
-   initialize();
+   return;
       }else if (playerHand.value > computerHand.value) {
         playerDeck.push(playerHand)
         playerDeck.push(computerHand);
@@ -146,8 +146,8 @@ function renderScreen() {
     document.querySelector('h2').innerText =  `${winner} wins this round of WAR!`;
     }
   // if (playerHand.value === computerHand.value) {
-  //   document.querySelector('.game-container').style.height = 0;
-  //   document.querySelector('.war-container').style.opacity = 1;
+  //   document.querySelector('.game-container').className = "hidden"
+  //   document.querySelector('.war-container').replace("hidden", $)
   //   playWar.innerText = "WAR!";
   //   }else {
   //     document.querySelector('.game-container').style.height = max-content;
