@@ -9,7 +9,7 @@
     <script defer src="js/main.js"></script>
   </head>
   <body>
-      <div class = "hidden" id = "start page">
+      <div class = "" id = "start page">
           <h1>WAR</h1>
         <h2 id= "rules-box">RULES</h2> 
             <div class = "rules"> 
@@ -24,13 +24,18 @@
             </div>
           <button>START</button>
       </div>
-    <h1>WAR</h1>
-    <h2 class= "winner-message"></h2>
-    <div class = "game-container">
+   
+    <div class = "game-container hidden">
+        <h1>WAR</h1>
+        <h2 class= "winner-message"></h2>
         <div class = "card xlarge back-red"  id="player-deck"></div>
-         <div class = "card xlarge back-red"  id="player-play"></div>
+        <div class = "card xlarge back-red"  id="player-play"></div>
         <div class = "card xlarge back-red"  id="computer-play"></div>
         <div class = "card xlarge back-red"  id ="computer-deck"></div>
+            <div class = "scoreboard">
+                <div id = "playerscore">PLAYER:<div id="score-p"></div></div>
+                <div id = "computerscore">COMPUTER:<div id="score-c"></div></div>
+            </div> 
      </div> 
      <table class ="war-container">
          <tr class = "hidden" id = "0"> 
@@ -58,10 +63,6 @@
             <td class = "card xlarge back-red"  id="computer-war-1"></td>
         </tr>
      </table>  
-    <button class ="play">PLAY</button>
-    <div class = "scoreboard">
-       <div id = "playerscore">PLAYER:<div id="score-p"></div></div>
-       <div id = "computerscore">COMPUTER:<div id="score-c"></div></div>
-    </div> 
+    
 </body>
 </html>

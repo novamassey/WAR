@@ -12,7 +12,7 @@ const cardLookup = {
 const masterDeck = buildMasterDeck();
 console.log(masterDeck);
 /*----- app's state (variables) -----*/
-let shuffledDeck, playerDeck, computerDeck, playerHand, computerHand, playerWarDeck, computerWarDeck, playerScore, computerScore, winner;
+let shuffledDeck, playerDeck, computerDeck, playerHand, computerHand, playerWarDeck, computerWarDeck, playerWarHand, computerWarHand, playerScore, computerScore, winner;
 
 
 /*----- cached element references -----*/
@@ -81,7 +81,7 @@ function play(e) {
   computerHand = computerDeck.shift();
   console.log('cards', playerHand, computerHand, playerDeck, computerDeck);
   if (winner !== null) {
-   return;
+   initialize();
       }else if (playerHand.value > computerHand.value) {
         playerDeck.push(playerHand)
         playerDeck.push(computerHand);
@@ -104,8 +104,8 @@ function war(e) {
   computerWarDeck.push(...computerDeck.splice(0, 2));
   //... to not just replace the war deck if war happens again, this will push all cards spliced into the war deck
   randomIndex = Math.floor(Math.random() * playerWarDeck.length);
-   let playerWarHand = playerWarDeck[randomIndex];
-  let computerWarHand = computerWarDeck[randomIndex];
+  playerWarHand = playerWarDeck[randomIndex];
+  computerWarHand = computerWarDeck[randomIndex];
   if (playerWarHand.value > computerWarHand.value) {
       playerDeck.push(...playerWarDeck);
       playerDeck.push(...computerWarDeck);
