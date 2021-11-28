@@ -1,3 +1,85 @@
+<!-- <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>repl.it</title>
+    <link href="css/card-deck-css/css/cardstarter.css" rel="stylesheet" />
+    <link href="css/main.css" rel="stylesheet" />
+    <script defer src="js/main.js"></script>
+  </head>
+  <body>
+      <div class = "hidden" id = "start page">
+          <h1>WAR</h1>
+        <div class = "rules"> 
+                <h2 id= "rules-box">RULES</h2> 
+                <h2>DEAL</h2>
+                    <p>The play button will deal two cards, one for each player</p>
+                <h2>PLAY</h2>
+                    <p>The player with the higher ranking cards wins the round and collects both cards</p>
+                <h2>WAR</h2>
+                    <p>If both cards in play are of equal ranking, two cards will be dealt face down. Player must click the card the wish to play and the winner  of this round collects all cards.</p>
+                 <h2>WIN</h2>
+                    <p>The player that has collected all 52 cards wins the game!</p>
+            </div>
+          <button>START</button>
+      </div>
+   
+    <div class = "game-container">
+        <h1>WAR</h1>
+        <h2 class= "winner-message"></h2>
+        <div class = "card xlarge back-red"  id="player-deck"></div>
+        <div class = "card xlarge back-red"  id="player-play"></div>
+        <div class = "card xlarge back-red"  id="computer-play"></div>
+        <div class = "card xlarge back-red"  id ="computer-deck"></div>
+            <div class = "scoreboard">
+                <div id = "playerscore">PLAYER:<div id="score-p"></div></div>
+                <div id = "computerscore">COMPUTER:<div id="score-c"></div></div>
+            </div> 
+     </div>
+     <div class="war-container hidden">
+        <table>
+            <th class = "contestants"> Player</th><th></th><th>Computer 
+            </th>
+            <tr class = "first-round hidden" id = "0"> 
+                <td class = "card xlarge back-red"  id="player-war-0"></td>
+                <td class = "card xlarge back-red"  id="player-war-1"></td>
+                <td class = "empty"></td>
+                <td class = "card xlarge back-red"  id="computer-war-0"></td>
+                <td class = "card xlarge back-red"  id="computer-war-1"></td>
+            </tr>
+            <tr class = "second-round hidden" id = "1"> 
+                <td class = "card xlarge back-red"  id="player-war-2"></td>
+                <td class = "card xlarge back-red"  id="player-war-3"></td>
+                <td class = "empty"></td>
+                <td class = "card xlarge back-red"  id="computer-war-2"></td>
+                <td class = "card xlarge back-red"  id="computer-war-3"></td>
+            </tr>
+            <tr class = "third-round hidden" id  = "2"> 
+                <td class = "card xlarge back-red"  id="player-war-4"></td>
+                <td class = "card xlarge back-red"  id="player-war-5"></td>
+                <td class = "empty"></td>
+                <td class = "card xlarge back-red"  id="computer-war-4"></td>
+                <td class = "card xlarge back-red"  id="computer-war-5"></td>
+            </tr>
+            <tr class = "fourth-round hidden" id = "3"> 
+                <td class = "card xlarge back-red"  id="player-war-6"></td>
+                <td class = "card xlarge back-red"  id="player-war-7"></td>
+                <td class = "empty"></td>
+                <td class = "card xlarge back-red"  id="computer-war-6"></td>
+                <td class = "card xlarge back-red"  id="computer-war-7"></td>
+            </tr>
+        </table>  
+     <button class = "play">Play</button>
+     <div class = "scoreboard">
+        <div id = "playerscore">PLAYER:<div id="score-p"></div></div>
+        <div id = "computerscore">COMPUTER:<div id="score-c"></div></div>
+    </div> 
+     </div>
+    
+</body>
+</html> -->
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -22,53 +104,45 @@
                  <h2>WIN</h2>
                     <p>The player that has collected all 52 cards wins the game!</p>
             </div>
-          <button>START</button>
       </div>
-   
-    <div class = "game-container hidden">
-        <h1>WAR</h1>
-        <h2 class= "winner-message"></h2>
+    <h1>WAR</h1>
+    <h2 class= "winner-message"></h2>
+    <div class = "game-container">
         <div class = "card xlarge back-red"  id="player-deck"></div>
-        <div class = "card xlarge back-red"  id="player-play"></div>
+         <div class = "card xlarge back-red"  id="player-play"></div>
         <div class = "card xlarge back-red"  id="computer-play"></div>
         <div class = "card xlarge back-red"  id ="computer-deck"></div>
-            <div class = "scoreboard">
-                <div id = "playerscore">PLAYER:<div id="score-p"></div></div>
-                <div id = "computerscore">COMPUTER:<div id="score-c"></div></div>
-            </div> 
      </div> 
      <table class ="war-container">
-         <th> Player</th><th></th><th>Computer 
-         </th>
-         <tr class = "" id = "0"> 
+         <tr class = "hidden" id = "0"> 
             <td class = "card xlarge back-red"  id="player-war-0"></td>
             <td class = "card xlarge back-red"  id="player-war-1"></td>
-            <td class = "empty"></td>
             <td class = "card xlarge back-red"  id="computer-war-0"></td>
             <td class = "card xlarge back-red"  id="computer-war-1"></td>
         </tr>
-        <tr class = "" id = "1"> 
+        <tr class = "hidden" id = "1"> 
             <td class = "card xlarge back-red"  id="player-war-0"></td>
             <td class = "card xlarge back-red"  id="player-war-1"></td>
-            <td class = "empty"></td>
             <td class = "card xlarge back-red"  id="computer-war-0"></td>
             <td class = "card xlarge back-red"  id="computer-war-1"></td>
         </tr>
-        <tr class = "" id  = "2"> 
+        <tr class = "hidden" id  = "2"> 
             <td class = "card xlarge back-red"  id="player-war-0"></td>
             <td class = "card xlarge back-red"  id="player-war-1"></td>
-            <td class = "empty"></td>
             <td class = "card xlarge back-red"  id="computer-war-0"></td>
             <td class = "card xlarge back-red"  id="computer-war-1"></td>
         </tr>
-        <tr class = "" id = "3"> 
+        <tr class = "hidden" id = "3"> 
             <td class = "card xlarge back-red"  id="player-war-0"></td>
             <td class = "card xlarge back-red"  id="player-war-1"></td>
-            <td class = "empty"></td>
             <td class = "card xlarge back-red"  id="computer-war-0"></td>
             <td class = "card xlarge back-red"  id="computer-war-1"></td>
         </tr>
      </table>  
-    
+    <button class ="play">PLAY</button>
+    <div class = "scoreboard">
+       <div id = "playerscore">PLAYER:<div id="score-p"></div></div>
+       <div id = "computerscore">COMPUTER:<div id="score-c"></div></div>
+    </div> 
 </body>
 </html>

@@ -17,13 +17,13 @@ let shuffledDeck, playerDeck, computerDeck, playerHand, computerHand, playerWarD
 
 /*----- cached element references -----*/
 const playWar = document.querySelector('.play');
-const warCards = document.querySelectorAll('.war');
 playerHandCard = document.getElementById('player-play');
 computerHandCard = document.getElementById('computer-play');
 
 
 /*----- event listeners -----*/
 playWar.addEventListener('click', play);
+
 
 
 /*----- functions -----*/
@@ -104,7 +104,7 @@ function war(e) {
   computerWarDeck.push(...computerDeck.splice(0, 2));
   //... to not just replace the war deck if war happens again, this will push all cards spliced into the war deck
   randomIndex = Math.floor(Math.random() * playerWarDeck.length);
-  playerWarHand = playerWarDeck[randomIndex];
+  playerWarHand = playerWarDeck[randomIndex]; //e.target.id;
   computerWarHand = computerWarDeck[randomIndex];
   if (playerWarHand.value > computerWarHand.value) {
       playerDeck.push(...playerWarDeck);
@@ -146,14 +146,18 @@ function renderScreen() {
     document.querySelector('h2').innerText =  `${winner} wins this round of WAR!`;
     }
   // if (playerHand.value === computerHand.value) {
-  //   document.querySelector('.game-container').className = "hidden"
-  //   document.querySelector('.war-container').replace("hidden", $)
-  //   playWar.innerText = "WAR!";
-  //   }else {
-  //     document.querySelector('.game-container').style.height = max-content;
-  //     document.querySelector('.war-container').style.opacity = 0;
-      // playWar.innerText = "Play";
-   // }
+  //   document.querySelector('.game-container').className = "hidden";
+  //   document.querySelector('.first-round').classList.remove("hidden");
+  // }else if(playerWarDeck.length > 2) {
+  //   document.querySelector('.second-round').classList.remove("hidden");
+  // }else if (playerWarDecklength > 4) {
+  //   document.querySelector('.third-round').classList.remove("hidden");
+  // }else if (playerWarDeck.length >= 6) {
+  //   document.querySelector('.fourth-round').classList.remove("hidden");
+  // }else{
+  //     document.querySelector('.game-container').classList.remove("hidden"); 
+  //     document.querySelector('.war-container').className.add("hidden");
+  //   }
   }
 
 
