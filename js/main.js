@@ -17,12 +17,14 @@ let shuffledDeck, playerDeck, computerDeck, playerHand, computerHand, playerWarD
 
 /*----- cached element references -----*/
 const playWar = document.querySelector('.play');
+const playerWarCard = document.getElementById('player-war');
 playerHandCard = document.getElementById('player-play');
 computerHandCard = document.getElementById('computer-play');
 
 
 /*----- event listeners -----*/
 playWar.addEventListener('click', play);
+player
 
 
 
@@ -104,7 +106,7 @@ function war(e) {
   computerWarDeck.push(...computerDeck.splice(0, 2));
   //... to not just replace the war deck if war happens again, this will push all cards spliced into the war deck
   randomIndex = Math.floor(Math.random() * playerWarDeck.length);
-  playerWarHand = playerWarDeck[randomIndex]; //e.target.id;
+  playerWarHand = e.target.id;
   computerWarHand = computerWarDeck[randomIndex];
   if (playerWarHand.value > computerWarHand.value) {
       playerDeck.push(...playerWarDeck);
@@ -137,7 +139,6 @@ function toggleClass() {
 
  
 function renderScreen() {
-  console.log(playerHand);
   document.getElementById('player-play').className = `card xlarge ${playerHand.face}`;
   document.getElementById('computer-play').className =`card xlarge ${computerHand.face}`;
   document.getElementById('score-p').innerText = `${playerScore}`;
@@ -145,27 +146,17 @@ function renderScreen() {
   if (winner !== null) {
     document.querySelector('h2').innerText =  `${winner} wins this round of WAR!`;
     }
-  // if (playerHand.value === computerHand.value) {
-  //   document.querySelector('.game-container').className = "hidden";
-  //   document.querySelector('.first-round').classList.remove("hidden");
-  // }else if(playerWarDeck.length > 2) {
-  //   document.querySelector('.second-round').classList.remove("hidden");
-  // }else if (playerWarDecklength > 4) {
-  //   document.querySelector('.third-round').classList.remove("hidden");
-  // }else if (playerWarDeck.length >= 6) {
-  //   document.querySelector('.fourth-round').classList.remove("hidden");
-  // }else{
-  //     document.querySelector('.game-container').classList.remove("hidden"); 
-  //     document.querySelector('.war-container').className.add("hidden");
-  //   }
+  if (playerHand.value === computerHand.value) {
+    document.getElementById('player-war').classList.remove("hidden");
+    document.getElementById('computer-war').classList.remove("hidden");
+    playerHandCard.className = "card xlarge back-red";
+    computerHandCard.className = "card xlarge back-red";
+    document.querySelector('.war').innerText= "PLAY WAR!";
+    playWar.innerText = "WAR";
+  }else{
+    document.getElementById('player-war').classList.add("hidden");
+    document.getElementById('computer-war').classList.add("hidden"); 
+    document.querySelector('.war').innerText= "";
+    playWar.innerText = "PLAY";
+    }
   }
-
-
-
-
-
-
-
-
-
-
