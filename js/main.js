@@ -142,14 +142,15 @@ function toggleClass() {
 }
 
   function renderScreen() {
-    if (winner ===null && playerScore === 0 && computerScore === 0) {
-      startPage.addEventListener('click' () =>  
+    if (winner === null && playerScore === 0 && computerScore === 0) {
+      startPage.addEventListener('click', function goToGame() {
+        startPage.classList.add ("hidden");
       })
     }
-  document.getElementById('player-play').className = `card xlarge ${playerHand.face}`;
-  document.getElementById('computer-play').className =`card xlarge ${computerHand.face}`;
-  document.getElementById('score-p').innerText = `${playerScore}`;
-  document.getElementById('score-c').innerText = `${computerScore}`;
+    document.getElementById('player-play').className = `card xlarge ${playerHand.face}`;
+    document.getElementById('computer-play').className =`card xlarge ${computerHand.face}`;
+    document.getElementById('score-p').innerText = `${playerScore}`;
+    document.getElementById('score-c').innerText = `${computerScore}`;
   if (winner !== null) {
     document.querySelector('h2').innerText =  `${winner} wins this round of WAR!`;
     document.querySelector('h1').innerText = "";
