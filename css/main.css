@@ -22,7 +22,20 @@ html, * {
     height: 100vh;
     text-align:center; 
   } */
+  @media only screen and (max-width: 960px) {
+    .card {
+      width:3.0em;
+      height:4.0em;
+    }
+  }
 
+  @media only screen and (max-width: 600px) {
+    .card {
+      width:2.75em;
+      height:3.5em;
+    }
+
+  }
   .hidden {
     display:none;
   }
