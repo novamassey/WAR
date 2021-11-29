@@ -1,111 +1,116 @@
 html, * {
-  box-sizing: border-box;
-}
-
-html, body {
-  height: 100%;
-  background-size: cover;
-  background-image: radial-gradient(red, black);
-  background-image: -webkit-radial-gradient(red, balck);
-  background-image: -moz-radial-gradient(red, black);
-  color: white;
-  font-family: 'Orbitron', sans-serif;
-}
-
-h1, h2, p {
-  text-align: center
-}
-.hidden {
-  display:none;
-}
-
-.game-container {
-  display: flex;
-  justify-content: center;
-  align-content: space-between;
-  visibility: visible;
-  height:max-content;
-}
-
-.scoreboard {
-  display: inline-block;
-  grid-template-columns: 15% 70% 15%;
-
-}
-.scoreboard > #playerscore {
-  display:grid;
+    box-sizing: border-box;
+  }
   
-}
+  html, body {
+    height: 100%;
+    background-image: radial-gradient(red, black);
+    background-image:-moz-radial-gradient(red, black);
+    background-image:-webkit-radial-gradient(red, black);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 90%;
+    background-size: cover;
+    color: white;
+  }
 
-.scoreboard > #computerscore {
-  display:grid;
-}
+  h1, h2, p {
+    text-align: center
+  }
+  
+  .game-container {
+    display: flex;
+    justify-content: center;
+    align-content: space-between;
+    visibility: visible;
+    height:max-content;
+  }
 
-.rules {
-  max-width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  visibility: visible;
-  font-size: 85%;
-}
+    .war-container {
+    display: flex;
+    justify-content: center;
+    align-content: space-between;
+    margin: -15px 10px 0 10px;
+    display: none;
+  }
 
-.rules > h2, p {
-  display: grid;
-  grid-column-start: 2;
-  margin: 10px 0 10px;
- }
+  .scoreboard {
+    display: inline-block;
+    grid-template-columns: 15% 70% 15%;
+  
+  }
+  .scoreboard > #playerscore {
+    display:grid;
+    
+  }
+
+  .scoreboard > #computerscore {
+    display:grid;
+    
+  }
+
+  .rules {
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    visibility: visible;
+  }
+
+  .rules > h2, p {
+    display: grid;
+    grid-column-start: 2;
+    margin: 10px 0 10px;
+   }
+   
+  
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    border: 4px dotted grey;
+  }
+
+  #player-deck {
+    margin-right: 15%;
+  }
+
+  #computer-deck {
+    margin-left: 15%;
+  }
  
 
-.card-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  border: 4px dotted grey;
-}
+  .scoreboard {
+    display: flex;
+    justify-content:space-between;
+    width:100vw;
+    height:50px;
 
-#player-deck {
-  margin-right: 15%;
-}
+  }
 
-#computer-deck {
-  margin-left: 15%;
-}
+  #playerscore {
+    margin-left: 15%;
+    
+  }
 
+  #computerscore {
+    margin-right: 15%;
+  }
 
-.scoreboard {
-  display: flex;
-  justify-content:space-between;
-  width:100vw;
-  height:50px;
-
-}
-
-#playerscore {
-  margin-left: 15%;
+  button {
+    display: block;
+    margin: 10px auto;
+    padding: 10px;
+    font-size: 16px;
+    color: white;
+    border: 1px solid grey;
+    border-radius: 4px;
+    outline: none;
+    background-color: black;
+    font-family: 'Orbitron', sans-serif;
+  }
   
-}
-
-#computerscore {
-  margin-right: 15%;
-}
-
-button {
-  display: block;
-  margin: 10px auto;
-  padding: 10px;
-  font-size: 16px;
-  color: white;
-  border: 1px solid grey;
-  border-radius: 4px;
-  outline: none;
-  background-color: black;
-  font-family: 'Orbitron', sans-serif;
-}
-
-button:hover {
-  background-color: black;
-  color: white;
-  cursor: pointer;
-}
-
+  button:hover {
+    background-color: black;
+    color: white;
+    cursor: pointer;
+  }
   
