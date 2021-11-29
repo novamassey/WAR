@@ -17,13 +17,15 @@ let shuffledDeck, playerDeck, computerDeck, playerHand, computerHand, playerWarD
 
 /*----- cached element references -----*/
 const playWar = document.querySelector('button');
-const warCards = document.querySelectorAll('.war');
+// const warCards = document.querySelectorAll('.war');
+const startPage = document.querySelector('.start-page');
 playerHandCard = document.getElementById('player-play');
 computerHandCard = document.getElementById('computer-play');
 
 
 /*----- event listeners -----*/
 playWar.addEventListener('click', play);
+
 
 
 /*----- functions -----*/
@@ -140,6 +142,10 @@ function toggleClass() {
 }
 
   function renderScreen() {
+    if (winner ===null && playerScore === 0 && computerScore === 0) {
+      startPage.addEventListener('click' () =>  
+      })
+    }
   document.getElementById('player-play').className = `card xlarge ${playerHand.face}`;
   document.getElementById('computer-play').className =`card xlarge ${computerHand.face}`;
   document.getElementById('score-p').innerText = `${playerScore}`;
