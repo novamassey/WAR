@@ -3,7 +3,7 @@ html, * {
   }
   
   html, body {
-    height: 100vh;
+    height: 100%;
     background-image: radial-gradient(red, black);
     background-image:-moz-radial-gradient(red, black);
     background-image:-webkit-radial-gradient(red, black);
@@ -11,16 +11,17 @@ html, * {
     font-size: 90%;
     background-size: cover;
     color: white;
+    margin: 0;
   }
 
   h1, h2, p {
     text-align: center
   }
 
-  .start-page {
+   .start-page {
     position:fixed;
-    width: 100%;
-    height: 110vh;
+    width: 100vw;
+    height: 100%;
     text-align: center;
     background-image: radial-gradient(black, red);
     background-image:-moz-radial-gradient(black, red);
@@ -28,8 +29,7 @@ html, * {
     background-size:cover;
     color: white;
     cursor: pointer;
-    /* margin:-0; */
-  }
+  } 
 
   .start-page > h1 {
     position: relative;
@@ -40,6 +40,7 @@ html, * {
   @keyframes fade-on-load {
     to{
     opacity: 1;
+    height: 100%
     }
   }
 
@@ -47,7 +48,19 @@ html, * {
     opacity:0;
     animation: fade-on-load 4s forwards ease-in-out;
   }
-  
+  @keyframes fade-away {
+    from { 
+      opacity: 1;
+      z-index: 1;
+      height: 100%;
+      }
+  }
+    
+  .fade-away {
+      opacity: 0;
+      z-index:-1;
+      animation: fade-away 6s ease-out;
+  }
 
   @media only screen and (max-width: 960px) {
     .card {
@@ -65,6 +78,7 @@ html, * {
   
   .hidden {
     display:none;
+    height: 0;
   }
   
   .game-container {
