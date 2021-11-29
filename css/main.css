@@ -1,233 +1,108 @@
-/* html, * {
-    box-sizing: border-box;
-  }
+html, * {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  background-size: cover;
+  background-image: radial-gradient (red, black);
+  background-image: -webkit-radial-gradient(red, balck);
+  background-image: -moz-radial-gradient(red, black);
+  color: black;
+}
+
+h1, h2, p {
+  text-align: center
+}
+.hidden {
+  display:none;
+}
+
+.game-container {
+  display: flex;
+  justify-content: center;
+  align-content: space-between;
+  visibility: visible;
+  height:max-content;
+}
+
+.scoreboard {
+  display: inline-block;
+  grid-template-columns: 15% 70% 15%;
+
+}
+.scoreboard > #playerscore {
+  display:grid;
   
-  html, body {
-    height: 100%; */
-    /* background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Trinity_Detonation_T%26B.jpg/1280px-Trinity_Detonation_T%26B.jpg");
-    background-size: cover;
-    color: black;
-  }
+}
 
-  h1, h2, p {
-    text-align: center
-  }
-  
-  .game-container {
-    display: flex;
-    justify-content: center;
-    align-content: space-between;
-    visibility: visible;
-    height:max-content;
-  }
+.scoreboard > #computerscore {
+  display:grid;
+}
 
-    .war-container {
-    display: flex;
-    justify-content: center;
-    align-content: space-between;
-    padding: 10% 0 0 0;
+.rules {
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  visibility: visible;
+}
 
-  }
-
-  
-
-  .hidden {
-    display:none;
-  }
-  
-
-  .scoreboard {
-    display: inline-block;
-    grid-template-columns: 15% 70% 15%;
-  
-  }
-  .scoreboard > #playerscore {
-    display:grid;
-    
-  }
-
-  .scoreboard > #computerscore {
-    display:grid;
-    
-  }
-
-  .rules {
-    max-width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    visibility: visible;
-  }
-
-  .rules > h2, p {
-    display: grid;
-    grid-column-start: 2;
-    margin: 10px 0 10px;
-   }
-   
-  
-  .card-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    border: 4px dotted grey;
-  }
-
-  #player-deck {
-    margin-right: 15%;
-  }
-
-  #computer-deck {
-    margin-left: 15%;
-  }
+.rules > h2, p {
+  display: grid;
+  grid-column-start: 2;
+  margin: 10px 0 10px;
+ }
  
 
-  .scoreboard {
-    display: flex;
-    justify-content:space-between;
-    width:100vw;
-    height:50px;
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  border: 4px dotted grey;
+}
 
-  }
+#player-deck {
+  margin-right: 15%;
+}
 
-  #playerscore {
-    margin-left: 15%;
-    
-  }
+#computer-deck {
+  margin-left: 15%;
+}
 
-  #computerscore {
-    margin-right: 15%;
-  }
 
-  button {
-    display: block;
-    margin: 10px auto;
-    padding: 10px;
-    font-size: 16px;
-    color: white;
-    border: 1px solid grey;
-    border-radius: 4px;
-    outline: none;
-    background-color: rgb(178, 60, 43);
-  }
+.scoreboard {
+  display: flex;
+  justify-content:space-between;
+  width:100vw;
+  height:50px;
+
+}
+
+#playerscore {
+  margin-left: 15%;
   
-  button:hover {
-    background-color: black;
-    color: white;
-    cursor: pointer;
-  } */
+}
+
+#computerscore {
+  margin-right: 15%;
+}
+
+button {
+  display: block;
+  margin: 10px auto;
+  padding: 10px;
+  font-size: 16px;
+  color: white;
+  border: 1px solid grey;
+  border-radius: 4px;
+  outline: none;
+  background-color: rgb(178, 60, 43);
+}
+
+button:hover {
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+
   
-  html, * {
-    box-sizing: border-box;
-  }
-  
-  html, body {
-    height: 100%;
-    /* background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Trinity_Detonation_T%26B.jpg/1280px-Trinity_Detonation_T%26B.jpg"); */
-    background-size: cover;
-    color: black;
-  }
-
-  h1, h2, p {
-    text-align: center
-  }
-  
-  .game-container {
-    display: flex;
-    justify-content: center;
-    align-content: space-between;
-    visibility: visible;
-    height:max-content;
-  }
-
-    .war-container {
-    display: flex;
-    justify-content: center;
-    align-content: space-between;
-    margin: -15px 10px 0 10px;
-    
-  }
-
-  .hidden {
-    display:none;
-  }
-  
-
-  .scoreboard {
-    display: inline-block;
-    grid-template-columns: 15% 70% 15%;
-  
-  }
-  .scoreboard > #playerscore {
-    display:grid;
-    
-  }
-
-  .scoreboard > #computerscore {
-    display:grid;
-    
-  }
-
-  .rules {
-    max-width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    visibility: visible;
-  }
-
-  .rules > h2, p {
-    display: grid;
-    grid-column-start: 2;
-    margin: 10px 0 10px;
-   }
-   
-  
-  .card-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    border: 4px dotted grey;
-  }
-
-  #player-deck {
-    margin-right: 15%;
-  }
-
-  #computer-deck {
-    margin-left: 15%;
-  }
- 
-
-  .scoreboard {
-    display: flex;
-    justify-content:space-between;
-    width:100vw;
-    height:50px;
-
-  }
-
-  #playerscore {
-    margin-left: 15%;
-    
-  }
-
-  #computerscore {
-    margin-right: 15%;
-  }
-
-  button {
-    display: block;
-    margin: 10px auto;
-    padding: 10px;
-    font-size: 16px;
-    color: white;
-    border: 1px solid grey;
-    border-radius: 4px;
-    outline: none;
-    background-color: rgb(178, 60, 43);
-  }
-  
-  button:hover {
-    background-color: black;
-    color: white;
-    cursor: pointer;
-  }

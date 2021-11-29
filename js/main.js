@@ -12,20 +12,18 @@ const cardLookup = {
 const masterDeck = buildMasterDeck();
 console.log(masterDeck);
 /*----- app's state (variables) -----*/
-let shuffledDeck, playerDeck, computerDeck, playerHand, computerHand, playerWarDeck, computerWarDeck, playerWarHand, computerWarHand, playerScore, computerScore, winner;
+let shuffledDeck, playerDeck, computerDeck, playerHand, computerHand, playerWarDeck, computerWarDeck, playerScore, computerScore, winner;
 
 
 /*----- cached element references -----*/
-const playWar = document.querySelector('.play');
-const playerWarCard = document.getElementById('player-war');
+const playWar = document.querySelector('button');
+const warCards = document.querySelectorAll('.war');
 playerHandCard = document.getElementById('player-play');
 computerHandCard = document.getElementById('computer-play');
 
 
 /*----- event listeners -----*/
 playWar.addEventListener('click', play);
-player
-
 
 
 /*----- functions -----*/
@@ -81,9 +79,9 @@ function deal() {
 function play(e) {
   playerHand = playerDeck.shift();
   computerHand = computerDeck.shift();
-  console.log('cards', playerHand, computerHand, playerDeck, computerDeck);
+  console.log('cards', playerHand, computerHand);
   if (winner !== null) {
-   initialize();
+   return;
       }else if (playerHand.value > computerHand.value) {
         playerDeck.push(playerHand)
         playerDeck.push(computerHand);
@@ -97,6 +95,7 @@ function play(e) {
         war();
   }
   getWinner();
+  console.log(computerDeck, playerDeck);
   renderScreen();
 };
 
@@ -106,18 +105,18 @@ function war(e) {
   computerWarDeck.push(...computerDeck.splice(0, 2));
   //... to not just replace the war deck if war happens again, this will push all cards spliced into the war deck
   randomIndex = Math.floor(Math.random() * playerWarDeck.length);
-  playerWarHand = e.target.id;
-  computerWarHand = computerWarDeck[randomIndex];
+  let playerWarHand = playerWarDeck[randomIndex];
+  let computerWarHand = computerWarDeck[randomIndex];
   if (playerWarHand.value > computerWarHand.value) {
       playerDeck.push(...playerWarDeck);
       playerDeck.push(...computerWarDeck);
       playerDeck.push(playerHand);
       playerDeck.push(computerHand);
   }else if (playerWarHand.value < computerWarHand.value) {
-      computerDeck.push(...computerWarDeck);
-      computerDeck.push(...playerWarDeck);
-      computerDeck.push(playerHand);
-      computerDeck.push(computerHand);
+    computerDeck.push(...computerWarDeck);
+    computerDeck.push(...playerWarDeck);
+    computerDeck.push(playerHand);
+    computerDeck.push(computerHand);
   }else{
    war();
   }
@@ -137,14 +136,15 @@ function toggleClass() {
   playWar.addEventListener
 }
 
- 
-function renderScreen() {
+  function renderScreen() {
   document.getElementById('player-play').className = `card xlarge ${playerHand.face}`;
   document.getElementById('computer-play').className =`card xlarge ${computerHand.face}`;
   document.getElementById('score-p').innerText = `${playerScore}`;
   document.getElementById('score-c').innerText = `${computerScore}`;
   if (winner !== null) {
     document.querySelector('h2').innerText =  `${winner} wins this round of WAR!`;
+    document.querySelector('h1').innerText = "";
+    initialize();
     }
   if (playerHand.value === computerHand.value) {
     document.getElementById('player-war').classList.remove("hidden");
