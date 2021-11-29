@@ -16,6 +16,16 @@ html, * {
   h1, h2, p {
     text-align: center
   }
+
+  /* .start-page {
+    width: 100%;
+    height: 100vh;
+    text-align:center; 
+  } */
+
+  .hidden {
+    display:none;
+  }
   
   .game-container {
     display: flex;

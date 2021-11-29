@@ -70,8 +70,10 @@ function deal() {
   shuffledDeck.forEach(function(card, index) {
     if(index % 2 === 0){
       playerDeck.push(card);
+      playerScore = playerDeck.length;
     }else{
       computerDeck.push(card);
+      computerScore = computerDeck.length;
     }
   });
 }
@@ -79,23 +81,20 @@ function deal() {
 function play(e) {
   playerHand = playerDeck.shift();
   computerHand = computerDeck.shift();
-  console.log('cards', playerHand, computerHand);
   if (winner !== null) {
    return;
       }else if (playerHand.value > computerHand.value) {
         playerDeck.push(playerHand)
         playerDeck.push(computerHand);
-        playerScore++;
+        playerScore = playerDeck.length;
       }else if (playerHand.value < computerHand.value){
         computerDeck.push(playerHand)
         computerDeck.push(computerHand);
-        computerScore++;
+        computerScore = computerDeck.length;
       }else{
-        console.log('war happend');
         war();
   }
   getWinner();
-  console.log(computerDeck, playerDeck);
   renderScreen();
 };
 
@@ -112,20 +111,24 @@ function war(e) {
       playerDeck.push(...computerWarDeck);
       playerDeck.push(playerHand);
       playerDeck.push(computerHand);
+      playerWarDeck = [];
+      computerWarDeck =[];
   }else if (playerWarHand.value < computerWarHand.value) {
     computerDeck.push(...computerWarDeck);
     computerDeck.push(...playerWarDeck);
     computerDeck.push(playerHand);
     computerDeck.push(computerHand);
+    playerWarDeck = [];
+    computerWarDeck =[];
   }else{
    war();
   }
 }
 
 function getWinner() {
-  if (playerDeck.length >= 51) {
+  if (playerDeck.length > 51) {
     winner = 'Player';
-  }else if (computerDeck <= 51) {
+  }else if (computerDeck < 51) {
     winner = 'Computer';
   }else{
     winner = null;
