@@ -5,10 +5,11 @@ html, * {
 html, body {
   height: 100%;
   background-size: cover;
-  background-image: radial-gradient (red, black);
+  background-image: radial-gradient(red, black);
   background-image: -webkit-radial-gradient(red, balck);
   background-image: -moz-radial-gradient(red, black);
-  color: black;
+  color: white;
+  font-family: 'Orbitron', sans-serif;
 }
 
 h1, h2, p {
@@ -96,7 +97,8 @@ button {
   border: 1px solid grey;
   border-radius: 4px;
   outline: none;
-  background-color: rgb(178, 60, 43);
+  background-color: black;
+  font-family: 'Orbitron', sans-serif;
 }
 
 button:hover {
