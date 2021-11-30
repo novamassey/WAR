@@ -12,12 +12,11 @@ const cardLookup = {
 const masterDeck = buildMasterDeck();
 console.log(masterDeck);
 /*----- app's state (variables) -----*/
-let shuffledDeck, playerDeck, computerDeck, playerHand, computerHand, playerWarDeck, computerWarDeck, playerScore, computerScore, winner;
+let shuffledDeck, playerDeck, computerDeck, playerHand, computerHand, playerWarDeck, computerWarDeck, playerWarHand, computerWarHand, playerScore, computerScore, winner;
 
 
 /*----- cached element references -----*/
 const playWar = document.querySelector('button');
-// const warCards = document.querySelectorAll('.war');
 const startPage = document.querySelector('.start-page');
 playerHandCard = document.getElementById('player-play');
 computerHandCard = document.getElementById('computer-play');
@@ -25,7 +24,7 @@ computerHandCard = document.getElementById('computer-play');
 
 /*----- event listeners -----*/
 playWar.addEventListener('click', play);
-startPage.addEventListener('click', removeStartPage)
+startPage.addEventListener('click', removeStartPage);
 
 
 
@@ -104,8 +103,8 @@ function war(e) {
   computerWarDeck.push(...computerDeck.splice(0, 2));
   //... to not just replace the war deck if war happens again, this will push all cards spliced into the war deck
   randomIndex = Math.floor(Math.random() * playerWarDeck.length);
-  let playerWarHand = playerWarDeck[randomIndex];
-  let computerWarHand = computerWarDeck[randomIndex];
+  playerWarHand = playerWarDeck[randomIndex];
+  computerWarHand = computerWarDeck[randomIndex];
   if (playerWarHand.value > computerWarHand.value) {
       playerDeck.push(...playerWarDeck);
       playerDeck.push(...computerWarDeck);
@@ -122,7 +121,12 @@ function war(e) {
     computerWarDeck =[];
   }else{
    war();
-   console.log(playerWarDeck, computerWarDeck);
+  if (playerWarDeck.length < 2) {
+    playerWarHand = playerWarDeck[0];
+    }
+  if (computerWarDeck.length < 2) {
+    computerWarHand = computerWarDeck[0];
+    }
   }
 }
 
@@ -148,6 +152,8 @@ function removeStartPage() {
   }, 2000);
 }
 
+
+
   function renderScreen() {
     document.getElementById('player-play').className = `card xlarge ${playerHand.face}`;
     document.getElementById('computer-play').className =`card xlarge ${computerHand.face}`;
@@ -160,7 +166,9 @@ function removeStartPage() {
     }
   if (playerHand.value === computerHand.value) {
     document.getElementById('player-war').classList.remove("hidden");
+    // document.getElementById('player-war').className = `card xlarge ${playerWarHand.face}`;
     document.getElementById('computer-war').classList.remove("hidden");
+    // document.getElementById('computer-war').className = `card xlarge ${computerWarHand.face}`;
     playerHandCard.className = "card xlarge back-red";
     computerHandCard.className = "card xlarge back-red";
     document.querySelector('.war').innerText= "PLAY WAR!";

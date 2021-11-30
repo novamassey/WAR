@@ -28,6 +28,7 @@ html, * {
     background-size:cover;
     color: white;
     cursor: pointer;
+    margin:0;
   } 
 
   .start-page > h1 {
