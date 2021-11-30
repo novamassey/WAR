@@ -179,7 +179,6 @@ function renderScreen() {
     document.getElementById('rules').innerText = "RULES";
     playWar.innerText = "PLAY";
   }
-  // } this code prevents from being able to click through start screen
   if (playerHand.value === computerHand.value) {
     document.getElementById('player-war').classList.remove("hidden");
     document.getElementById('computer-war').classList.remove("hidden");
