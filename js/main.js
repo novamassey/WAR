@@ -95,8 +95,6 @@ function play(e) {
   }
   getScore();
   getWinner();
-  console.log(playerHand, computerHand);
-  console.log(playerDeck, computerDeck)
   renderScreen();
 };
 
@@ -144,7 +142,6 @@ function getWinner() {
 };
 
 function removeStartPage() {
-  console.log("event ran");
   startPage.classList.add("fade-away");
   setTimeout(function() {
     startPage.remove();
