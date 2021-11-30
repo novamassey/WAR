@@ -105,6 +105,12 @@ function war(e) {
   randomIndex = Math.floor(Math.random() * playerWarDeck.length);
   playerWarHand = playerWarDeck[randomIndex];
   computerWarHand = computerWarDeck[randomIndex];
+  if (playerWarDeck.length < 2) {
+    playerWarHand = playerWarDeck[0];
+    }
+  if (computerWarDeck.length < 2) {
+    computerWarHand = computerWarDeck[0];
+    }
   if (playerWarHand.value > computerWarHand.value) {
       playerDeck.push(...playerWarDeck);
       playerDeck.push(...computerWarDeck);
@@ -121,12 +127,6 @@ function war(e) {
     computerWarDeck =[];
   }else{
    war();
-  if (playerWarDeck.length < 2) {
-    playerWarHand = playerWarDeck[0];
-    }
-  if (computerWarDeck.length < 2) {
-    computerWarHand = computerWarDeck[0];
-    }
   }
 }
 
@@ -138,12 +138,14 @@ function getScore () {
 function getWinner() {
   if (playerDeck.length > 51) {
     winner = 'Player';
-  }else if (computerDeck < 51) {
+  }else if (computerDeck.length > 51) {
     winner = 'Computer';
   }else{
     winner = null;
   }
 };
+
+
 
 function removeStartPage() {
   startPage.classList.add("fade-away");
@@ -169,12 +171,12 @@ function removeStartPage() {
     document.getElementById('computer-war').classList.remove("hidden");
     playerHandCard.className = "card xlarge back-red";
     computerHandCard.className = "card xlarge back-red";
-    document.querySelector('.war').innerText= "PLAY WAR!";
+    document.getElementById('rules').innerText= "PLAY WAR!";
     playWar.innerText = "WAR";
   }else{
     document.getElementById('player-war').classList.add("hidden");
     document.getElementById('computer-war').classList.add("hidden"); 
-    document.querySelector('.war').innerText= "";
+    document.getElementById('rules').innerText= "RULES";
     playWar.innerText = "PLAY";
     }
   }
