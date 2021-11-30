@@ -71,8 +71,8 @@ html, * {
       height:3.25em;
     }
     .rules {
-      margin:-2px;
-      padding: -2px;
+      margin:-5px;
+      padding: -5px;
     }
   }
 
@@ -111,6 +111,7 @@ html, * {
     .scoreboard {
     display: inline-block;
     grid-template-columns: 15% 70% 15%;
+    font-size:18px;
   }
   
   .scoreboard > #playerscore {
@@ -125,12 +126,15 @@ html, * {
     max-width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    font-size:20px;
   }
   
    .rules > h2, p {
     display: grid;
     grid-column-start: 2;
     padding: 0;
+    margin:8px;
+    font-size:18px;
   } 
 
   .card-container {
@@ -160,7 +164,7 @@ html, * {
   }
 
   #computerscore {
-    margin-right: -10%;
+    margin-right: 15%;
   }
 
   button {
