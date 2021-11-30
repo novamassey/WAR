@@ -155,8 +155,8 @@ function removeStartPage() {
 
 
   function renderScreen() {
-    document.getElementById('player-play').className = `card xlarge ${playerHand.face}`;
-    document.getElementById('computer-play').className =`card xlarge ${computerHand.face}`;
+    playerHandCard.className = `card xlarge ${playerHand.face}`;
+    computerHandCard.className =`card xlarge ${computerHand.face}`;
     document.getElementById('score-p').innerText = `${playerScore}`;
     document.getElementById('score-c').innerText = `${computerScore}`;
   if (winner !== null) {
@@ -166,9 +166,7 @@ function removeStartPage() {
     }
   if (playerHand.value === computerHand.value) {
     document.getElementById('player-war').classList.remove("hidden");
-    // document.getElementById('player-war').className = `card xlarge ${playerWarHand.face}`;
     document.getElementById('computer-war').classList.remove("hidden");
-    // document.getElementById('computer-war').className = `card xlarge ${computerWarHand.face}`;
     playerHandCard.className = "card xlarge back-red";
     computerHandCard.className = "card xlarge back-red";
     document.querySelector('.war').innerText= "PLAY WAR!";
