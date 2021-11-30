@@ -32,13 +32,15 @@ html, * {
   } 
 
   .start-page > h1 {
-    position: relative;
-    margin-top: 275px;
+    position: relative; 
+    display:block;
+    margin-top: 340px;
+    margin-bottom: 340px;
     font-size: 200px;
   }
 
   @keyframes fade-on-load {
-    to{
+    to {
     opacity: 1;
     height: 100%
     }
@@ -48,53 +50,48 @@ html, * {
     opacity:0;
     animation: fade-on-load 4s forwards ease-in-out;
   }
+  
   @keyframes fade-away {
     from { 
       opacity: 1;
-      }
+    }
       to {
       opacity: 0;
-      }
+    }
   }
 
   .fade-away {
     animation-duration: 2s;
     animation-name: fade-away;
   }
-  
-  /* @keyframes fade-in{
-    from {
-      opacity: 0;
-      z-index:-1;
-    }
-  } */
-  
-  /* .fade-away {
-    opacity: 0;
-      z-index:-1;
-      color:red;
-      animation: fade-away 6s ease-out; */
-  /* } */
-  
-  /* .fade-in {
-    opacity: 1;
-    z-index: 1;
-    animation-delay: 6s;
-    animation: fade-in 6s ease-out;
-  } */
 
-
-  @media only screen and (max-width: 960px) {
+  @media only screen and (max-width: 980px) {
     .card {
       width:3.0em;
-      height:3.7em;
+      height:3.25em;
+    }
+    .rules {
+      margin:-2px;
+      padding: -2px;
     }
   }
 
-  @media only screen and (max-width: 700px) {
+  @media only screen and (max-width: 780px) {
     .card {
-      width:2.75em;
-      height:3.0em;
+      width:2.5em;
+      height:2.6em;
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+    .card {
+      width:2.0em;
+      height:2.5em;
+    }
+    .start {
+      font-size: 150px;
+      margin-top: 44px;
+      margin-bottom: 44px;
     }
   }
   
@@ -111,8 +108,7 @@ html, * {
     height: max-content;
   }
 
-
-  .scoreboard {
+    .scoreboard {
     display: inline-block;
     grid-template-columns: 15% 70% 15%;
   }
@@ -129,19 +125,14 @@ html, * {
     max-width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-
-    
   }
   
    .rules > h2, p {
     display: grid;
     grid-column-start: 2;
     padding: 0;
-    
-   } 
+  } 
 
-  
-   
   .card-container {
     display: flex;
     flex-wrap: wrap;
@@ -157,22 +148,19 @@ html, * {
     margin-left: 15%;
   }
  
-
   .scoreboard {
     display: flex;
     justify-content:space-between;
     width:100vw;
     height:50px;
-
   }
 
   #playerscore {
     margin-left: 15%;
-    
   }
 
   #computerscore {
-    margin-right: 15%;
+    margin-right: -10%;
   }
 
   button {
@@ -190,7 +178,8 @@ html, * {
   
   button:hover {
     background-color: black;
-    color: white;
+    color: red;
+    border: 2px solid white;
     cursor: pointer;
   }
   
