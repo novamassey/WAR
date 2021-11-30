@@ -25,6 +25,7 @@ computerHandCard = document.getElementById('computer-play');
 
 /*----- event listeners -----*/
 playWar.addEventListener('click', play);
+startPage.addEventListener('click', removeStartPage)
 
 
 
@@ -72,11 +73,9 @@ function deal() {
   shuffledDeck.forEach(function(card, index) {
     if(index % 2 === 0){
       playerDeck.push(card);
-      playerScore = playerDeck.length;
     }else{
       computerDeck.push(card);
-      computerScore = computerDeck.length;
-    }
+      }
   });
 }
 
@@ -86,17 +85,18 @@ function play(e) {
   if (winner !== null) {
    return;
       }else if (playerHand.value > computerHand.value) {
-        playerDeck.push(playerHand)
+        playerDeck.push(playerHand);
         playerDeck.push(computerHand);
-        playerScore = playerDeck.length;
       }else if (playerHand.value < computerHand.value){
-        computerDeck.push(playerHand)
+        computerDeck.push(playerHand);
         computerDeck.push(computerHand);
-        computerScore = computerDeck.length;
       }else{
         war();
   }
+  getScore();
   getWinner();
+  console.log(playerHand, computerHand);
+  console.log(playerDeck, computerDeck)
   renderScreen();
 };
 
@@ -124,7 +124,13 @@ function war(e) {
     computerWarDeck =[];
   }else{
    war();
+   console.log(playerWarDeck, computerWarDeck);
   }
+}
+
+function getScore () {
+  playerScore = playerDeck.length;
+  computerScore = computerDeck.length;
 }
 
 function getWinner() {
@@ -137,8 +143,12 @@ function getWinner() {
   }
 };
 
-function toggleClass() {
-  playWar.addEventListener
+function removeStartPage() {
+  console.log("event ran");
+  startPage.classList.add("fade-away");
+  setTimeout(function() {
+    startPage.remove();
+  }, 2000);
 }
 
   function renderScreen() {
@@ -148,7 +158,7 @@ function toggleClass() {
     document.getElementById('score-c').innerText = `${computerScore}`;
   if (winner !== null) {
     document.querySelector('h2').innerText =  `${winner} wins this round of WAR!`;
-    document.querySelector('h1').innerText = "";
+    document.querySelector('.war').innerText = "";
     initialize();
     }
   if (playerHand.value === computerHand.value) {

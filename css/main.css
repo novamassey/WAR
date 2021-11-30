@@ -51,16 +51,38 @@ html, * {
   @keyframes fade-away {
     from { 
       opacity: 1;
-      z-index: 1;
-      height: 100%;
+      }
+      to {
+      opacity: 0;
       }
   }
-    
+
   .fade-away {
+    animation-duration: 2s;
+    animation-name: fade-away;
+  }
+  
+  /* @keyframes fade-in{
+    from {
       opacity: 0;
       z-index:-1;
-      animation: fade-away 6s ease-out;
-  }
+    }
+  } */
+  
+  /* .fade-away {
+    opacity: 0;
+      z-index:-1;
+      color:red;
+      animation: fade-away 6s ease-out; */
+  /* } */
+  
+  /* .fade-in {
+    opacity: 1;
+    z-index: 1;
+    animation-delay: 6s;
+    animation: fade-in 6s ease-out;
+  } */
+
 
   @media only screen and (max-width: 960px) {
     .card {
@@ -86,43 +108,39 @@ html, * {
     justify-content: center;
     align-content: space-between;
     visibility: visible;
-    height:max-content;
+    height: max-content;
   }
 
-    .war-container {
-    display: flex;
-    justify-content: center;
-    align-content: space-between;
-    margin: -15px 10px 0 10px;
-    display: none;
-  }
 
   .scoreboard {
     display: inline-block;
     grid-template-columns: 15% 70% 15%;
-  
   }
+  
   .scoreboard > #playerscore {
     display:grid;
-    
   }
 
   .scoreboard > #computerscore {
     display:grid;
-    
   }
 
   .rules {
     max-width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    visibility: none;
+  }
+  
+  .rules:hover {
     visibility: visible;
+
   }
 
   .rules > h2, p {
     display: grid;
     grid-column-start: 2;
-    margin: 10px 0 10px;
+    margin: -10px;
    }
    
   
