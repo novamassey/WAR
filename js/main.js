@@ -12,7 +12,7 @@ const cardLookup = {
 const masterDeck = buildMasterDeck();
 console.log(masterDeck);
 /*----- app's state (variables) -----*/
-let shuffledDeck, playerDeck, computerDeck, playerHand, computerHand, playerWarDeck, computerWarDeck, playerWarHand, computerWarHand, playerScore, computerScore, winner;
+let shuffledDeck, playerDeck, computerDeck, playerHand, computerHand, playerWarDeck, computerWarDeck, playerScore, computerScore, winner;
 
 
 /*----- cached element references -----*/
