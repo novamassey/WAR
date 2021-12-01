@@ -25,9 +25,6 @@ computerHandCard = document.getElementById('computer-play');
 /*----- event listeners -----*/
 playWar.addEventListener('click', play);
 startPage.addEventListener('click', removeStartPage);
-document.querySelector('.reset').addEventListener('click', reset);
-
-
 
 /*----- functions -----*/
 initialize();
@@ -145,12 +142,6 @@ function getWinner() {
     winner = null;
   }
 };
-
-function reset() {
-  initialize();
-  renderScreen();
-}
-
 
 function removeStartPage() {
   startPage.classList.add("fade-away");

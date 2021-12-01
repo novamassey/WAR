@@ -24,9 +24,9 @@
 <img src = "https://i.imgur.com/w4jytvH.png"  width="700">
 
 ### **WAR** Event
->This board shows the **WAR** deck, two cards pulled from the player's deck and the computer's deck. On clicking the button, which text has now been changed to **WAR** a random index will chose the player and computer hand to compare.
+>This board shows the **WAR** deck, if the two cards in play are equal one card is dealt face down and the next cards are in play. The party with the higher card value wins the round.
 
-<img src = "https://i.imgur.com/ajkNQLX.png" width="700">
+<img src = "https://i.imgur.com/kw7pVFD.png" width="700">
 
 ### Winner Declared
 >This is the final board that has a winning message for the computer who has accumulated all 52 cards in their deck.
