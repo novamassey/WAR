@@ -10,7 +10,7 @@ const cardLookup = {
 
 // Build a 'master' deck of 'card' objects used to create shuffled decks
 const masterDeck = buildMasterDeck();
-console.log(masterDeck);
+
 /*----- app's state (variables) -----*/
 let shuffledDeck, playerDeck, computerDeck, playerHand, computerHand, playerWarDeck, computerWarDeck, playerScore, computerScore, winner;
 
@@ -82,7 +82,6 @@ function deal() {
 function play(e) {
   playerHand = playerDeck.shift();
   computerHand = computerDeck.shift();
-  console.log(playerHand, computerHand);
   if (winner !== null) {
     return;
   } else if (playerHand.value > computerHand.value) {
@@ -91,7 +90,7 @@ function play(e) {
   } else if (playerHand.value < computerHand.value) {
     computerDeck.push(playerHand);
     computerDeck.push(computerHand);
-  } else if (playerHand.value  === computerHand.value) {
+  } else if (playerHand.value === computerHand.value) {
     war();
   }
   getScore();
