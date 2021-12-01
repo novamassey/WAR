@@ -54,6 +54,6 @@ Steps
 * be able to click the **WAR** cards to flip them, rather than relying on the button and random index
 * explore further use of keyframe animations, css transitions to make interaction with the page more engaging
 * create a **WAR** page that uses an interval or setTimeOut function to display on a full page **THIS MEANS WAR!**
-* possible incorporation of gifs to maket the page more entertaining
+* possible incorporation of gifs to make the page more entertaining
 
 
