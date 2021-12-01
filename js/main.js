@@ -82,6 +82,7 @@ function deal() {
 function play(e) {
   playerHand = playerDeck.shift();
   computerHand = computerDeck.shift();
+  console.log(playerHand, computerHand);
   if (winner !== null) {
     return;
   } else if (playerHand.value > computerHand.value) {
@@ -90,7 +91,7 @@ function play(e) {
   } else if (playerHand.value < computerHand.value) {
     computerDeck.push(playerHand);
     computerDeck.push(computerHand);
-  } else {
+  } else if (playerHand.value  === computerHand.value) {
     war();
   }
   getScore();
@@ -174,8 +175,8 @@ function renderScreen() {
   if (playerHand.value === computerHand.value) {
     document.getElementById('player-war').classList.remove("hidden");
     document.getElementById('computer-war').classList.remove("hidden");
-    playerHandCard.className = "card xlarge back-red";
-    computerHandCard.className = "card xlarge back-red";
+    playerHandCard.className = `card xlarge ${playerHand.face}`;
+    computerHandCard.className = `card xlarge ${computerHand.face}`;
     document.getElementById('rules').innerText = "PLAY WAR!";
     playWar.innerText = "WAR";
   } else {
