@@ -8,7 +8,7 @@
 ## Screen Shots of the Games State
 ---
 ### Start Page
->On the start page I used a keyframe animation in css to make the game title appear slowly on screen and then stay on screen, awaiting for a click event.  Once clicked there is another fade-away keyframe animation defined in the css but called in the javascript.  The  element needed to be removed after the animation so the game board could be accessed.
+>On the start page I used a keyframe animation in css to make the game title appear slowly on screen and then stay on screen, awaiting for a click event.  Once clicked there is another fade-away keyframe animation defined in the css but called in the javascript.  The  element was removed after the animation so the game board could be accessed.
 
 <img src = "https://i.imgur.com/5eQHFb2.png" width="700">
 
@@ -24,9 +24,9 @@
 <img src = "https://i.imgur.com/w4jytvH.png"  width="700">
 
 ### **WAR** Event
->This board shows the **WAR** deck, two cards pulled from the player's deck and the computer's deck. On clicking the button, which text has not been changed to **WAR** a random index will chose the player and computer hand to compare.
+>This board shows the **WAR** deck, two cards pulled from the player's deck and the computer's deck. On clicking the button, which text has now been changed to **WAR** a random index will chose the player and computer hand to compare.
 
-<img src = "https://i.imgur.com/a6bcMYF.png" width="700">
+<img src = "https://i.imgur.com/ajkNQLX.png" width="700">
 
 ### Winner Declared
 >This is the final board that has a winning message for the computer who has accumulated all 52 cards in their deck.
@@ -53,7 +53,7 @@ Steps
 >Items I would like to explore next on this project are:
 * be able to click the **WAR** cards to flip them, rather than relying on the button and random index
 * explore further use of keyframe animations, css transitions to make interaction with the page more engaging
-* create a **WAR** page that uses an interval or setTimeOut function to diplay on a full page **THIS MEANS WAR** each word at a time.
-* explore incorporation of gifs, I like the simple appearance and using images tended to not mesh with my overall desire for a simple design, but I think there could be limited git usage that would make the game more entertaining.
+* create a **WAR** page that uses an interval or setTimeOut function to display on a full page **THIS MEANS WAR!**
+* possible incorporation of gifs to maket the page more entertaining
 
 

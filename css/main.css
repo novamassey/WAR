@@ -65,10 +65,32 @@ html, * {
     animation-name: fade-away;
   }
 
+  @media only screen and (max-width: 375px) {
+    .card {
+      width:1.5em;
+      height:1.7em;
+      white-space:normal;
+    }
+    .start-page > h1 {
+      font-size: 50px;
+      margin-top: 300px;
+      margin-bottom: 300px;
+    }
+    .rules{
+      display: grid;
+      grid-template-columns: 1fr 5fr 1fr;
+    }
+    h2, p {
+      display: grid;
+      grid-column-start: 2;
+      font-size: 5px;
+    }
+  }
+
   @media only screen and (max-width: 980px) {
     .card {
-      width:3.0em;
-      height:3.25em;
+      width:4.5em;
+      height:6.0em;
     }
     .rules {
       margin:-5px;
@@ -83,17 +105,6 @@ html, * {
     }
   }
 
-  @media only screen and (max-width: 600px) {
-    .card {
-      width:2.0em;
-      height:2.5em;
-    }
-    .start {
-      font-size: 150px;
-      margin-top: 44px;
-      margin-bottom: 44px;
-    }
-  }
   
   .hidden {
     display:none;

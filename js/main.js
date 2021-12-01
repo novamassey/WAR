@@ -171,14 +171,6 @@ function renderScreen() {
     document.querySelector('.war').innerText = "";
     initialize();
   }
-  if (playerScore === 0 && computerScore === 0) {
-    playerHandCard.className = "card xlarge back-red";
-    playerHandCard.className = "card xlarge back-red";
-    document.getElementById('player-war').classList.add("hidden");
-    document.getElementById('computer-war').classList.add("hidden");
-    document.getElementById('rules').innerText = "RULES";
-    playWar.innerText = "PLAY";
-  }
   if (playerHand.value === computerHand.value) {
     document.getElementById('player-war').classList.remove("hidden");
     document.getElementById('computer-war').classList.remove("hidden");
